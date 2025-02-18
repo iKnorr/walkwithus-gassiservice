@@ -12,27 +12,27 @@ import { bannerItems } from '@/data/bannerItems'
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react'
+import { Facebook, Instagram } from 'lucide-react'
 import Link from 'next/link'
 import { Navbar } from '@/components/custom/navbar/Navbar'
 import { InfoMain } from '@/components/custom/info/InfoMain'
 
 export default function Home() {
     const [api, setApi] = useState<CarouselApi>()
-    const [current, setCurrent] = useState(0)
-    const [count, setCount] = useState(0)
+    // const [current, setCurrent] = useState(0)
+    // const [count, setCount] = useState(0)
 
     useEffect(() => {
         if (!api) {
             return
         }
 
-        setCount(api.scrollSnapList().length)
-        setCurrent(api.selectedScrollSnap() + 1)
+        // setCount(api.scrollSnapList().length)
+        // setCurrent(api.selectedScrollSnap() + 1)
 
-        api.on('select', () => {
-            setCurrent(api.selectedScrollSnap() + 1)
-        })
+        // api.on('select', () => {
+        //     setCurrent(api.selectedScrollSnap() + 1)
+        // })
     }, [api])
 
     return (

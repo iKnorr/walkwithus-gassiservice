@@ -138,7 +138,10 @@ export default function Home() {
                     <div className="text-xs text-gray-600">
                         © 2025 Walk with us - GassiService
                     </div>
-                    <Link href="#" className="hover:text-primary">
+                    <Link
+                        href="https://www.instagram.com/walkwithus_gassiservice/?hl=en"
+                        className="hover:text-primary"
+                    >
                         <Instagram />
                     </Link>
                     {/* <div className="flex flex-col">

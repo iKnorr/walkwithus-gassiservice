@@ -3,17 +3,13 @@ import Image from 'next/image'
 export default function Home() {
     return (
         <div className="flex flex-col items-center justify-between h-screen ">
-            <main className="flex flex-col h-full items-center">
-                <div className="">
+            <main className="flex flex-col h-full w-full items-center">
+                <div className="h-64 sm:h-96 w-full relative">
                     <Image
-                        className="object-fill"
                         src="/images/dogs-2.jpg"
                         alt="Doggy logo"
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ width: '100%', height: 'auto' }}
-                        priority
+                        layout="fill"
+                        objectFit="cover"
                     />
                 </div>
                 <div className="flex flex-col justify-center items-center py-2">

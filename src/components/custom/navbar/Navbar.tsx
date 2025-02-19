@@ -1,37 +1,68 @@
-import { useState } from 'react'
-import { Instagram, Menu, X } from 'lucide-react'
+import { Dispatch, SetStateAction, useState } from 'react'
+import { Instagram, Menu, PawPrint, X } from 'lucide-react'
+import Link from 'next/link'
 
-export const Navbar = () => {
+interface NavbarProps {
+    setCurrentIndex: Dispatch<SetStateAction<number>>
+}
+
+export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false)
+
     const handleClick = () => {
         setIsOpen(!isOpen)
     }
+
+    const handleClickAbout = () => {
+        setCurrentIndex(0)
+    }
+    const handleClickContact = () => {
+        setCurrentIndex(1)
+    }
+    const handleClickServices = () => {
+        setCurrentIndex(2)
+    }
     return (
-        <nav className="relative w-full bg-slate-300 p-4 shadow-md">
-            <div className="flex w-full items-center justify-between">
+        <nav className="relative w-full bg-neutral-600 p-4 shadow-md">
+            <div className="flex w-full items-center justify-between text-white">
                 <a
                     target="_blank"
                     href="https://www.instagram.com/walkwithus_gassiservice/?hl=en"
                     className="flex items-center justify-center"
                 >
-                    <Instagram />
+                    <PawPrint color="white" />
                 </a>
                 <h1 className="text-l font-semibold">
                     Walk with us - GassiService
                 </h1>
 
                 <div className="hidden space-x-6 md:flex">
-                    <a href="#" className="cursor-pointer hover:text-gray-400">
+                    <Link
+                        href="/"
+                        className="cursor-pointer hover:text-gray-400"
+                    >
                         Home
-                    </a>
-                    <a href="#" className="cursor-pointer hover:text-gray-400">
+                    </Link>
+                    <a
+                        href="#"
+                        className="cursor-pointer hover:text-gray-400"
+                        onClick={handleClickAbout}
+                    >
                         About
                     </a>
-                    <a href="#" className="cursor-pointer hover:text-gray-400">
+                    <a
+                        href="#"
+                        className="cursor-pointer hover:text-gray-400"
+                        onClick={handleClickContact}
+                    >
                         Contact
                     </a>
-                    <a href="#" className="cursor-pointer hover:text-gray-400">
-                        Gallery
+                    <a
+                        href="#"
+                        className="cursor-pointer hover:text-gray-400"
+                        onClick={handleClickServices}
+                    >
+                        Services
                     </a>
                 </div>
 
@@ -41,7 +72,7 @@ export const Navbar = () => {
             </div>
 
             {isOpen && (
-                <div className="absolute right-0 top-10 z-10 mt-4 flex w-full flex-col items-center justify-center space-y-4 border-t border-gray-500 bg-slate-300 px-2 py-4 shadow-lg md:hidden">
+                <div className="absolute right-0 top-10 z-20 mt-4 flex w-full flex-col items-center justify-center space-y-4 border-t border-gray-500 bg-gray-100 px-2 py-4 shadow-lg md:hidden">
                     <a
                         href="#"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
@@ -51,20 +82,23 @@ export const Navbar = () => {
                     <a
                         href="#"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
+                        onClick={handleClickAbout}
                     >
                         About
                     </a>
                     <a
                         href="#"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
+                        onClick={handleClickContact}
                     >
                         Contact
                     </a>
                     <a
                         href="#"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
+                        onClick={handleClickServices}
                     >
-                        Gallery
+                        Services
                     </a>
                     <a
                         target="_blank"

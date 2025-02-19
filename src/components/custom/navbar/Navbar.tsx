@@ -23,18 +23,14 @@ export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
         setCurrentIndex(2)
     }
     return (
-        <nav className="relative w-full bg-neutral-600 p-4 shadow-md">
+        <nav className="bg-green relative w-full p-4 shadow-md">
             <div className="flex w-full items-center justify-between text-white">
-                <a
-                    target="_blank"
-                    href="https://www.instagram.com/walkwithus_gassiservice/?hl=en"
-                    className="flex items-center justify-center"
-                >
+                <div className="flex gap-2">
                     <PawPrint color="white" />
-                </a>
-                <h1 className="text-l font-semibold">
-                    Walk with us - GassiService
-                </h1>
+                    <h1 className="text-l font-semibold">
+                        Walk with us - GassiService
+                    </h1>
+                </div>
 
                 <div className="hidden space-x-6 md:flex">
                     <Link
@@ -105,7 +101,7 @@ export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
                         href="https://www.instagram.com/walkwithus_gassiservice/?hl=en"
                         className="flex w-full items-center justify-center p-2"
                     >
-                        <Instagram />
+                        <Instagram color="#5B6B57" />
                     </a>
                 </div>
             )}

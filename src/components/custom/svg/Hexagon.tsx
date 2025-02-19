@@ -9,7 +9,7 @@ export const Hexagon = () => {
             version="1.1"
             id="Layer_1"
             viewBox="0 0 512 512"
-            fill="#525252"
+            fill="#F3F4F6"
         >
             <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 

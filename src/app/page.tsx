@@ -79,7 +79,7 @@ export default function Home() {
                 currentIndex={currentIndex}
                 setCurrentIndex={setCurrentIndex}
             />
-            <footer className="z-10 w-full border-t border-gray-200 bg-neutral-600 text-white">
+            <footer className="bg-green z-10 w-full border-t border-gray-200 text-white">
                 <div className="flex h-full w-full items-center justify-between px-4 py-2">
                     <Link
                         target="_blank"

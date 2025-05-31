@@ -50,7 +50,13 @@ export const metadata: Metadata = {
         title: 'Walk with us | GassiService',
         description:
             'Professioneller und liebevoller Gassi-Service in deiner Nähe.',
-        images: ['https://yourdomain.com/images/dogs-1.jpg'],
+        images: ['https://walkwithus-gassiservice.com/images/dogs-1.jpg'],
+    },
+    alternates: {
+        canonical: 'https://walkwithus-gassiservice.com',
+    },
+    other: {
+        'msapplication-config': '/browserconfig.xml',
     },
 }
 

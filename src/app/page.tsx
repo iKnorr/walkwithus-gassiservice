@@ -57,7 +57,7 @@ export default function Home() {
                                         priority
                                         className="h-full w-full object-cover"
                                         src={
-                                            item?.image || `/images/dogs-1.webp`
+                                            item?.image || '/images/dogs-1.webp'
                                         }
                                         alt={item.title}
                                         fill

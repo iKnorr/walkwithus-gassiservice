@@ -20,7 +20,7 @@ export const InfoMain = ({ currentIndex, setCurrentIndex }: InfoMainProps) => {
     }
 
     return (
-        <div className="relative flex h-full w-full flex-col items-center bg-gray-100 text-gray-800">
+        <section className="relative flex w-full flex-col items-center bg-gray-100 text-gray-800">
             <div className="absolute top-[-20px] z-10">
                 <HexagonIcon
                     className=""
@@ -43,6 +43,6 @@ export const InfoMain = ({ currentIndex, setCurrentIndex }: InfoMainProps) => {
                     <ArrowRight color="#85A98F" size={40} />
                 </button>
             </div>
-        </div>
+        </section>
     )
 }

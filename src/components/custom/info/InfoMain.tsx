@@ -36,7 +36,7 @@ export const InfoMain = ({ currentIndex, setCurrentIndex }: InfoMainProps) => {
                 <button onClick={prevSlide}>
                     <ArrowLeft color="#85A98F" size={40} />
                 </button>
-                <div className="flex w-full flex-col items-center justify-center px-2 py-3">
+                <div className="flex w-full flex-col items-center justify-center px-2 py-3 md:px-10">
                     {sections[currentIndex].content}
                 </div>
                 <button onClick={nextSlide}>

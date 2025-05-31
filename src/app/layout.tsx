@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Walk with us | GassiService',
         description:
-            "Professional dog walking service in Germany. Reliable, loving care for your pets while you're away.",
+            'Professioneller und liebevoller Gassi-Service in deiner Nähe.',
         url: 'https://walkwithus-gassiservice.com',
         siteName: 'Walk with Us - GassiService',
         images: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Walk with us | GassiService',
         description:
-            'Reliable dog walking services tailored to your schedule and your dog’s needs.',
+            'Professioneller und liebevoller Gassi-Service in deiner Nähe.',
         images: ['https://yourdomain.com/images/dogs-1.jpg'],
     },
 }

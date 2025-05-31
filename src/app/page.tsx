@@ -54,10 +54,11 @@ export default function Home() {
                             <CarouselItem key={index} className="h-full">
                                 <div className="relative h-[300px] w-full md:h-[400px]">
                                     <Image
+                                        priority
+                                        className="h-full w-full object-cover"
                                         src={item.image || '/images/dogs-1.jpg'}
                                         alt={item.title}
                                         fill
-                                        style={{ objectFit: 'cover' }}
                                     />
                                 </div>
                             </CarouselItem>

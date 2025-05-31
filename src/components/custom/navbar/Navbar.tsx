@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState } from 'react'
-import { Instagram, Menu, PawPrint, X } from 'lucide-react'
+import { Facebook, Instagram, Menu, PawPrint, X } from 'lucide-react'
 import Link from 'next/link'
 
 interface NavbarProps {
@@ -15,15 +15,22 @@ export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
 
     const handleClickAbout = () => {
         setCurrentIndex(0)
+        setIsOpen(false)
     }
     const handleClickContact = () => {
         setCurrentIndex(1)
+        setIsOpen(false)
     }
     const handleClickServices = () => {
         setCurrentIndex(2)
+        setIsOpen(false)
+    }
+    const handleClickTariffs = () => {
+        setCurrentIndex(3)
+        setIsOpen(false)
     }
     return (
-        <nav className="bg-green relative w-full p-4 shadow-md">
+        <nav className="relative w-full bg-green p-4 shadow-md">
             <div className="flex w-full items-center justify-between text-white">
                 <div className="flex gap-2">
                     <PawPrint color="white" />
@@ -37,28 +44,35 @@ export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
                         href="/"
                         className="cursor-pointer hover:text-gray-400"
                     >
-                        Home
+                        Startseite
                     </Link>
                     <a
                         href="#"
                         className="cursor-pointer hover:text-gray-400"
                         onClick={handleClickAbout}
                     >
-                        About
+                        Über uns
                     </a>
                     <a
                         href="#"
                         className="cursor-pointer hover:text-gray-400"
                         onClick={handleClickContact}
                     >
-                        Contact
+                        Kontakt
                     </a>
                     <a
                         href="#"
                         className="cursor-pointer hover:text-gray-400"
                         onClick={handleClickServices}
                     >
-                        Services
+                        Coming Soon
+                    </a>
+                    <a
+                        href="#"
+                        className="cursor-pointer hover:text-gray-400"
+                        onClick={handleClickTariffs}
+                    >
+                        Tarife
                     </a>
                 </div>
 
@@ -72,29 +86,37 @@ export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
                     <a
                         href="#"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
+                        onClick={() => setIsOpen(false)}
                     >
-                        Home
+                        Startseite
                     </a>
                     <a
                         href="#"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
                         onClick={handleClickAbout}
                     >
-                        About
+                        Über uns
                     </a>
                     <a
                         href="#"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
                         onClick={handleClickContact}
                     >
-                        Contact
+                        Kontakt
                     </a>
                     <a
                         href="#"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
                         onClick={handleClickServices}
                     >
-                        Services
+                        Coming Soon
+                    </a>
+                    <a
+                        href="#"
+                        className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
+                        onClick={handleClickTariffs}
+                    >
+                        Tarife
                     </a>
                     <a
                         target="_blank"
@@ -102,6 +124,13 @@ export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
                         className="flex w-full items-center justify-center p-2"
                     >
                         <Instagram color="#5B6B57" />
+                    </a>
+                    <a
+                        target="_blank"
+                        href="https://www.instagram.com/walkwithus_gassiservice/?hl=en"
+                        className="flex w-full items-center justify-center p-2"
+                    >
+                        <Facebook color="#5B6B57" />
                     </a>
                 </div>
             )}

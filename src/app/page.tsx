@@ -35,7 +35,7 @@ export default function Home() {
     return (
         <main className="flex h-screen flex-col justify-between bg-gray-100">
             <Navbar setCurrentIndex={setCurrentIndex} />
-            <section className="w-full">
+            <section className="h-full w-full p-4">
                 <Carousel
                     opts={{
                         align: 'start',
@@ -59,27 +59,17 @@ export default function Home() {
                                         fill
                                         style={{ objectFit: 'cover' }}
                                     />
-                                    {/* <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 text-white">
-                                        <h2 className="mb-2 text-4xl font-bold">
-                                            {item.title}
-                                        </h2>
-                                        <p className="text-xl">
-                                            {item.description}
-                                        </p>
-                                    </div> */}
                                 </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    {/* <CarouselPrevious className="left-4" />
-                    <CarouselNext className="right-4" /> */}
                 </Carousel>
             </section>
             <InfoMain
                 currentIndex={currentIndex}
                 setCurrentIndex={setCurrentIndex}
             />
-            <footer className="bg-green z-10 w-full border-t border-gray-200 text-white">
+            <footer className="z-10 w-full border-t border-gray-200 bg-green text-white">
                 <div className="flex h-full w-full items-center justify-between px-4 py-2">
                     <Link
                         target="_blank"

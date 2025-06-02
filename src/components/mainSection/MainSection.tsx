@@ -37,7 +37,7 @@ export const MainSection = () => {
             {/* ABOUT US */}
             <section
                 id="about"
-                className="relative flex flex-col items-center justify-center bg-gray-100 px-6 py-12 text-center md:py-20"
+                className="relative flex flex-col items-center justify-center bg-gray-100 px-6 py-12 text-center md:px-40 md:py-40"
             >
                 <div className="absolute top-[-20px] z-10">
                     <HexagonIcon
@@ -136,7 +136,10 @@ export const MainSection = () => {
             </section>
 
             {/* CONTACT */}
-            <section id="contact" className="px-6 py-16 text-center md:py-24">
+            <section
+                id="contact"
+                className="w-full bg-gray-100 px-6 py-16 text-center md:py-24"
+            >
                 <h2 className="text-3xl font-bold">Kontakt</h2>
                 <p className="mb-6">Wir freuen uns auf deine Nachricht!</p>
                 <div className="flex flex-col items-center gap-4">

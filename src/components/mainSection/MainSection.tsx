@@ -91,7 +91,7 @@ export const MainSection = () => {
                 id="tariffs"
                 className="w-full bg-green px-6 py-12 text-center md:py-20"
             >
-                <h2 className="mb-4 text-3xl font-medium italic text-white md:mb-6 md:text-7xl">
+                <h2 className="mb-4 text-4xl font-medium italic text-white md:mb-6 md:text-7xl">
                     Tarife für Walks
                 </h2>
                 <p className="mb-6 text-lg text-white">
@@ -117,7 +117,7 @@ export const MainSection = () => {
                 id="comingSoon"
                 className="flex w-full flex-col items-center gap-10 bg-white px-10 py-12 md:py-20"
             >
-                <h2 className="mb-4 text-3xl font-medium italic md:mb-6 md:text-7xl">
+                <h2 className="mb-4 text-4xl font-medium italic md:mb-6 md:text-7xl">
                     Coming Soon
                 </h2>
                 <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-4">
@@ -142,7 +142,7 @@ export const MainSection = () => {
                 id="contact"
                 className="w-full bg-gray-100 px-6 py-16 text-center md:py-24"
             >
-                <h2 className="mb-4 text-3xl font-medium italic md:mb-6 md:text-7xl">
+                <h2 className="mb-4 text-4xl font-medium italic md:mb-6 md:text-7xl">
                     Kontakt
                 </h2>
                 <p className="mb-6">Wir freuen uns auf deine Nachricht!</p>

@@ -21,7 +21,7 @@ export const Homeclient = () => {
                     >
                         <Facebook />
                     </Link>
-                    <div className="text-xs">
+                    <div className="text-xs md:text-lg">
                         © 2025 Walk with us - GassiService
                     </div>
                     <Link

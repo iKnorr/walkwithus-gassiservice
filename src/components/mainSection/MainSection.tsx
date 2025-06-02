@@ -51,16 +51,16 @@ export const MainSection = () => {
                     <Hexagon />
                 </div>
                 <div className="z-10">
-                    <h1 className="mb-4 text-4xl font-medium italic md:mb-6 md:text-7xl">
+                    <h1 className="mb-4 text-4xl font-medium italic md:mb-8 md:text-7xl">
                         Willkommen bei Walk with us 🐾
                     </h1>
-                    <p className="mb-2">
+                    <p className="mb-2 text-xl">
                         Das ist mein liebevoller Gassiservice, mit dem ich vor
                         sieben Jahren meine Leidenschaft zum Beruf gemacht habe
                         – für mich gibt es nichts Schöneres als hündische
                         Gesellschaft.
                     </p>
-                    <p>
+                    <p className="text-xl">
                         „Us“ – das sind meine beiden Hündinnen Lotti und Stellar
                         und ich. Gemeinsam lieben wir es, durch die Wälder rund
                         um München und in den Isarauen zu streifen. Auf unseren
@@ -94,7 +94,7 @@ export const MainSection = () => {
                 <h2 className="mb-4 text-4xl font-medium italic text-white md:mb-6 md:text-7xl">
                     Tarife für Walks
                 </h2>
-                <p className="mb-6 text-lg text-white">
+                <p className="mb-6 text-xl text-white">
                     Regelmäßige Spaziergänge – abgestimmt auf deinen Bedarf.
                 </p>
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-2">
@@ -145,8 +145,10 @@ export const MainSection = () => {
                 <h2 className="mb-4 text-4xl font-medium italic md:mb-6 md:text-7xl">
                     Kontakt
                 </h2>
-                <p className="mb-6">Wir freuen uns auf deine Nachricht!</p>
-                <div className="flex flex-col items-center gap-4">
+                <p className="mb-6 text-xl">
+                    Wir freuen uns auf deine Nachricht!
+                </p>
+                <div className="flex flex-col items-center gap-4 text-xl">
                     <div className="flex items-center gap-2">
                         <Mail />
                         <a

@@ -1,9 +1,11 @@
+'use client'
+
 import { Dispatch, SetStateAction, useState } from 'react'
 import { Facebook, Instagram, Menu, PawPrint, X } from 'lucide-react'
 import Link from 'next/link'
 
 interface NavbarProps {
-    setCurrentIndex: Dispatch<SetStateAction<number>>
+    setCurrentIndex?: Dispatch<SetStateAction<number>>
 }
 
 export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
@@ -14,62 +16,56 @@ export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
     }
 
     const handleClickAbout = () => {
-        setCurrentIndex(0)
+        // setCurrentIndex(0)
         setIsOpen(false)
     }
     const handleClickContact = () => {
-        setCurrentIndex(1)
+        // setCurrentIndex(1)
         setIsOpen(false)
     }
     const handleClickServices = () => {
-        setCurrentIndex(2)
+        // setCurrentIndex(2)
         setIsOpen(false)
     }
     const handleClickTariffs = () => {
-        setCurrentIndex(3)
+        // setCurrentIndex(3)
         setIsOpen(false)
     }
     return (
-        <nav className="relative w-full bg-green p-4 shadow-md">
-            <div className="flex w-full items-center justify-between text-white">
-                <div className="flex gap-2">
+        <nav className="fixed z-30 h-20 w-full items-center justify-center bg-green p-4 shadow-md">
+            <div className="flex h-full w-full items-center justify-between text-white">
+                <Link className="flex gap-2" href="/">
                     <PawPrint color="white" />
-                    <h1 className="text-l font-semibold">
+                    <h1 className="text-l font-semibold md:text-lg">
                         Walk with us - GassiService
                     </h1>
-                </div>
+                </Link>
 
-                <div className="hidden space-x-6 md:flex">
-                    <Link
-                        href="/"
-                        className="cursor-pointer hover:text-gray-400"
-                    >
-                        Startseite
-                    </Link>
+                <div className="hidden space-x-6 text-lg md:flex">
                     <a
-                        href="#"
-                        className="cursor-pointer hover:text-gray-400"
+                        href="#about"
+                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
                         onClick={handleClickAbout}
                     >
                         Über uns
                     </a>
                     <a
-                        href="#"
-                        className="cursor-pointer hover:text-gray-400"
+                        href="#contact"
+                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
                         onClick={handleClickContact}
                     >
                         Kontakt
                     </a>
                     <a
-                        href="#"
-                        className="cursor-pointer hover:text-gray-400"
+                        href="#comingSoon"
+                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
                         onClick={handleClickServices}
                     >
                         Coming Soon
                     </a>
                     <a
-                        href="#"
-                        className="cursor-pointer hover:text-gray-400"
+                        href="#tariffs"
+                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
                         onClick={handleClickTariffs}
                     >
                         Tarife
@@ -82,37 +78,30 @@ export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
             </div>
 
             {isOpen && (
-                <div className="absolute right-0 top-10 z-20 mt-4 flex w-full flex-col items-center justify-center space-y-4 border-t border-gray-500 bg-gray-100 px-2 py-4 shadow-lg md:hidden">
+                <div className="top-15 absolute right-0 z-20 mt-4 flex w-full flex-col items-center justify-center space-y-4 border-t border-gray-500 bg-gray-100 px-2 py-4 shadow-lg md:hidden">
                     <a
-                        href="#"
-                        className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        Startseite
-                    </a>
-                    <a
-                        href="#"
+                        href="#about"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
                         onClick={handleClickAbout}
                     >
                         Über uns
                     </a>
                     <a
-                        href="#"
+                        href="#contact"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
                         onClick={handleClickContact}
                     >
                         Kontakt
                     </a>
                     <a
-                        href="#"
+                        href="#comingSoon"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
                         onClick={handleClickServices}
                     >
                         Coming Soon
                     </a>
                     <a
-                        href="#"
+                        href="#tariffs"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
                         onClick={handleClickTariffs}
                     >

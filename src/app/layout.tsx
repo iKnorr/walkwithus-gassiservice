@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Barlow } from 'next/font/google'
 import './globals.css'
+import { Navbar } from '@/components/custom/navbar/Navbar'
 
 const barlow = Barlow({
     weight: ['100', '200', '300', '400', '500', '600', '700'],
@@ -66,8 +67,11 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="de" dir="ltr">
-            <body className={`${barlow.className}`}>{children}</body>
+        <html className="scroll-smooth" lang="de" dir="ltr">
+            <body className={`${barlow.className}`}>
+                <Navbar />
+                <div className="min-h-screen">{children}</div>
+            </body>
         </html>
     )
 }

@@ -10,6 +10,15 @@ export default {
     ],
     theme: {
         extend: {
+            animation: {
+                fadeIn: 'fadeIn 1.5s ease-in forwards',
+            },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' },
+                },
+            },
             colors: {
                 green: '#5A6C57',
                 background: 'hsl(var(--background))',

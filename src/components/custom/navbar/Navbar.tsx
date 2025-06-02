@@ -53,18 +53,18 @@ export const Navbar = () => {
                         Kontakt
                     </a>
                     <a
-                        href="#comingSoon"
-                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
-                        onClick={handleClickServices}
-                    >
-                        Coming Soon
-                    </a>
-                    <a
                         href="#tariffs"
                         className="cursor-pointer font-light hover:text-gray-400 hover:underline"
                         onClick={handleClickTariffs}
                     >
                         Tarife
+                    </a>
+                    <a
+                        href="#comingSoon"
+                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
+                        onClick={handleClickServices}
+                    >
+                        Coming Soon
                     </a>
                 </div>
 
@@ -90,18 +90,18 @@ export const Navbar = () => {
                         Kontakt
                     </a>
                     <a
-                        href="#comingSoon"
-                        className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
-                        onClick={handleClickServices}
-                    >
-                        Coming Soon
-                    </a>
-                    <a
                         href="#tariffs"
                         className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
                         onClick={handleClickTariffs}
                     >
                         Tarife
+                    </a>
+                    <a
+                        href="#comingSoon"
+                        className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
+                        onClick={handleClickServices}
+                    >
+                        Coming Soon
                     </a>
                     <a
                         target="_blank"

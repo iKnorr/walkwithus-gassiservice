@@ -32,20 +32,5 @@ export const HeroPost = () => {
                 </div>
             </div>
         </section>
-        // <div
-        //     className="h-screen"
-        //     style={{
-        //         backgroundImage: "url('/images/dogs-5.webp')",
-        //         backgroundSize: 'cover',
-        //         backgroundPosition: 'center',
-        //         backgroundRepeat: 'no-repeat',
-        //     }}
-        // >
-        //     <h1
-        //         className={`animate-fadeIn text-center text-5xl text-white md:text-7xl`}
-        //     >
-        //         Wald, Wiese, Wasser – artgerechte Ausflüge für deinen Hund{' '}
-        //     </h1>
-        // </div>
     )
 }

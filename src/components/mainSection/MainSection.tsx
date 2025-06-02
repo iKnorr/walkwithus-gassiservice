@@ -133,27 +133,6 @@ export const MainSection = () => {
                         </div>
                     ))}
                 </div>
-                {/* <ul className="max-w-xl space-y-4 text-left">
-                    <li>
-                        <strong>Einzelstundentraining:</strong> Individuelle
-                        Betreuung für dich und deinen Hund – abgestimmt auf eure
-                        Bedürfnisse.
-                    </li>
-                    <li>
-                        <strong>Mantrailing:</strong> Gemeinsam auf Spurensuche
-                        – artgerechte Auslastung für Nasenarbeiter.
-                    </li>
-                    <li>
-                        <strong>Social Walks:</strong> Geführte Spaziergänge in
-                        der Gruppe – entspanntes Miteinander statt wildem
-                        Durcheinander.
-                    </li>
-                    <li>
-                        <strong>Lastenrad-Gewöhnung:</strong> Schritt für
-                        Schritt zur sicheren Fahrt – stressfreie Einführung ans
-                        Lastenrad.
-                    </li>
-                </ul> */}
             </section>
 
             {/* CONTACT */}

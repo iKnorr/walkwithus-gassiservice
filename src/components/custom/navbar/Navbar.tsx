@@ -1,14 +1,10 @@
 'use client'
 
-import { Dispatch, SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import { Facebook, Instagram, Menu, PawPrint, X } from 'lucide-react'
 import Link from 'next/link'
 
-interface NavbarProps {
-    setCurrentIndex?: Dispatch<SetStateAction<number>>
-}
-
-export const Navbar = ({ setCurrentIndex }: NavbarProps) => {
+export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const handleClick = () => {

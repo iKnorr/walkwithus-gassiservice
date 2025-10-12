@@ -97,7 +97,7 @@ export const MainSection = () => {
                 <p className="mb-6 text-xl text-white">
                     Regelmäßige Spaziergänge – abgestimmt auf deinen Bedarf.
                 </p>
-                <div className="mx-auto grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-2">
+                {/* <div className="mx-auto grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-2">
                     {[39, 38, 37, 36, 35].map((price, i) => (
                         <div
                             key={price}
@@ -109,6 +109,27 @@ export const MainSection = () => {
                             <p className="text-2xl font-bold">{price} €</p>
                         </div>
                     ))}
+                </div> */}
+                {/* Neues Feld: Preis pro Hund und Runde */}
+                <div className="flex w-full flex-wrap items-center justify-center gap-10">
+                    <div className="w-[300px] rounded-2xl border bg-gray-100 p-4 text-center shadow-sm">
+                        <p className="text-lg font-semibold">
+                            Pro Hund und Runde
+                        </p>
+                        <p className="text-2xl font-bold">41 €</p>
+                        <p className="text-sm text-gray-600">
+                            Mit Platzgarantie
+                        </p>
+                    </div>
+
+                    {/* Neues Feld: 10er Karte */}
+                    <div className="w-[300px] rounded-2xl border bg-gray-100 p-4 text-center shadow-sm">
+                        <p className="text-lg font-semibold">10 er Karte</p>
+                        <p className="text-2xl font-bold">490 €</p>
+                        <p className="text-sm text-gray-600">
+                            Für zeitlich Flexible
+                        </p>
+                    </div>
                 </div>
             </section>
 

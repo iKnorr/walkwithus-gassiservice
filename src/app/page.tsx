@@ -1,35 +1,43 @@
+import { metadata as rootMetadata } from './layout'
 import { Homeclient } from '@/components/homeclient/Homeclient'
 import { Metadata } from 'next'
 
-const baseDomainUrl = 'https://www.walkwithus-gassiservice.com'
+const SITE_URL = 'https://www.walkwithus-gassiservice.com'
+const OG_IMAGE = '/images/dogs-1.webp'
 
 export const metadata: Metadata = {
-    title: 'Walk with us | GassiService',
+    metadataBase: new URL(SITE_URL),
+    title: rootMetadata.title ?? 'Walk with us | GassiService',
     description:
-        'Professioneller und liebevoller Gassi-Service in deiner Nähe. Buche jetzt bei Walk with us – deinem zuverlässigen Hundeservice!',
+        'Professioneller Gassiservice in München. Liebevolle Spaziergänge und zuverlässige Hundebetreuung für deinen Vierbeiner.',
+    keywords: rootMetadata.keywords,
+    robots: rootMetadata.robots,
     openGraph: {
         title: 'Walk with us | GassiService',
         description:
             'Professioneller und liebevoller Gassi-Service in deiner Nähe.',
-        url: baseDomainUrl,
-        siteName: 'Walk with us',
+        url: SITE_URL,
+        siteName: 'Walk with Us - GassiService',
         images: [
             {
-                url: `${baseDomainUrl}/images/dogs-1.webp`,
+                url: OG_IMAGE,
                 width: 1200,
                 height: 630,
                 alt: 'Glücklicher Hund beim Spaziergang mit Walk with us',
             },
         ],
-        type: 'website',
         locale: 'de_DE',
+        type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Walk with us | GassiService',
         description:
             'Professioneller und liebevoller Gassi-Service in deiner Nähe.',
-        images: [`${baseDomainUrl}/images/dogs-1.webp`],
+        images: [OG_IMAGE],
+    },
+    alternates: {
+        canonical: SITE_URL,
     },
 }
 

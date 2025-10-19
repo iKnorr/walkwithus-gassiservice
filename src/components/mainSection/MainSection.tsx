@@ -33,7 +33,7 @@ const comingSoonImages = [
 
 export const MainSection = () => {
     return (
-        <main className="flex w-full flex-col items-center">
+        <div className="flex w-full flex-col items-center">
             {/* ABOUT US */}
             <section
                 id="about"
@@ -190,6 +190,6 @@ export const MainSection = () => {
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
     )
 }

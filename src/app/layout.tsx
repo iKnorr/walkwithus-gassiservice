@@ -8,7 +8,11 @@ const barlow = Barlow({
     subsets: ['latin'],
 })
 
+const SITE_URL = 'https://www.walkwithus-gassiservice.com'
+const OG_IMAGE = '/images/dogs-1.webp'
+
 export const metadata: Metadata = {
+    metadataBase: new URL(SITE_URL),
     title: 'Walk with us | GassiService',
     description:
         'Professioneller Gassiservice in Deutschland. Zuverlässige und liebevolle Betreuung für deine Vierbeiner.',
@@ -20,10 +24,18 @@ export const metadata: Metadata = {
         'dog walker',
         'pet care',
         'Walk with Us',
+        'Hundebetreuung München',
+        'Hundedienst München',
     ],
     robots: {
         index: true,
         follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-snippet': -1,
+            'max-image-preview': 'large',
+        },
     },
     icons: {
         icon: '/favicon.ico',
@@ -33,14 +45,14 @@ export const metadata: Metadata = {
         title: 'Walk with us | GassiService',
         description:
             'Professioneller und liebevoller Gassi-Service in deiner Nähe.',
-        url: 'https://walkwithus-gassiservice.com',
+        url: SITE_URL,
         siteName: 'Walk with Us - GassiService',
         images: [
             {
-                url: 'https://walkwithus-gassiservice.com/images/dogs-1.jpg',
+                url: OG_IMAGE,
                 width: 1200,
                 height: 630,
-                alt: 'Happy dog walking with us',
+                alt: 'Glücklicher Hund beim Spaziergang mit Walk with us',
             },
         ],
         locale: 'de_DE',
@@ -51,13 +63,10 @@ export const metadata: Metadata = {
         title: 'Walk with us | GassiService',
         description:
             'Professioneller und liebevoller Gassi-Service in deiner Nähe.',
-        images: ['https://walkwithus-gassiservice.com/images/dogs-1.jpg'],
+        images: [OG_IMAGE],
     },
     alternates: {
-        canonical: 'https://walkwithus-gassiservice.com',
-    },
-    other: {
-        'msapplication-config': '/browserconfig.xml',
+        canonical: SITE_URL,
     },
 }
 

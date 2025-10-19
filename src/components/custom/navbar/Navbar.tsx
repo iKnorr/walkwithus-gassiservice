@@ -12,19 +12,15 @@ export const Navbar = () => {
     }
 
     const handleClickAbout = () => {
-        // setCurrentIndex(0)
         setIsOpen(false)
     }
     const handleClickContact = () => {
-        // setCurrentIndex(1)
         setIsOpen(false)
     }
     const handleClickServices = () => {
-        // setCurrentIndex(2)
         setIsOpen(false)
     }
     const handleClickTariffs = () => {
-        // setCurrentIndex(3)
         setIsOpen(false)
     }
     return (
@@ -112,7 +108,7 @@ export const Navbar = () => {
                     </a>
                     <a
                         target="_blank"
-                        href="https://www.instagram.com/walkwithus_gassiservice/?hl=en"
+                        href="https://www.facebook.com/walkwithusgassiservice"
                         className="flex w-full items-center justify-center p-2"
                     >
                         <Facebook color="#5B6B57" />

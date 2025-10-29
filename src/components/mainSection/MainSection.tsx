@@ -1,9 +1,12 @@
 'use client'
 
-import { HexagonIcon, Mail, Phone } from 'lucide-react'
+import { HexagonIcon } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import { Hexagon } from '../custom/svg/Hexagon'
+import { ContactForm } from '../custom/contactForm/ContactForm'
+import { FAQ } from '../custom/faq/FAQ'
+import { PRICING } from '@/data/constants'
 
 const dogImages = [
     { src: '/images/dogs-1.webp', alt: 'Dogs having fun 1' },
@@ -61,12 +64,20 @@ export const MainSection = () => {
                         Gesellschaft.
                     </p>
                     <p className="text-xl">
-                        „Us“ – das sind meine beiden Hündinnen Lotti und Stellar
+                        „Us" – das sind meine beiden Hündinnen Lotti und Stellar
                         und ich. Gemeinsam lieben wir es, durch die Wälder rund
                         um München und in den Isarauen zu streifen. Auf unseren
                         abwechslungsreichen Ausflügen freuen wir uns immer über
                         neue vierbeinige Begleiter!
                     </p>
+                    <div className="mt-8">
+                        <a
+                            href="#contact"
+                            className="inline-block rounded-md bg-green px-8 py-3 text-lg text-white transition-colors hover:bg-green/90"
+                        >
+                            Jetzt Kontakt aufnehmen
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -97,39 +108,36 @@ export const MainSection = () => {
                 <p className="mb-6 text-xl text-white">
                     Regelmäßige Spaziergänge – abgestimmt auf deinen Bedarf.
                 </p>
-                {/* <div className="mx-auto grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-2">
-                    {[39, 38, 37, 36, 35].map((price, i) => (
-                        <div
-                            key={price}
-                            className="rounded-2xl border bg-gray-100 p-4 shadow-sm"
-                        >
-                            <p className="text-lg font-semibold">
-                                {i + 1}x / Woche
-                            </p>
-                            <p className="text-2xl font-bold">{price} €</p>
-                        </div>
-                    ))}
-                </div> */}
-                {/* Neues Feld: Preis pro Hund und Runde */}
                 <div className="flex w-full flex-wrap items-center justify-center gap-10">
                     <div className="w-[300px] rounded-2xl border bg-gray-100 p-4 text-center shadow-sm">
                         <p className="text-lg font-semibold">
                             Pro Hund und Runde
                         </p>
-                        <p className="text-2xl font-bold">41 €</p>
+                        <p className="text-2xl font-bold">
+                            {PRICING.perWalk.price} {PRICING.perWalk.currency}
+                        </p>
                         <p className="text-sm text-gray-600">
-                            Mit Platzgarantie
+                            {PRICING.perWalk.description}
                         </p>
                     </div>
 
-                    {/* Neues Feld: 10er Karte */}
                     <div className="w-[300px] rounded-2xl border bg-gray-100 p-4 text-center shadow-sm">
                         <p className="text-lg font-semibold">10 er Karte</p>
-                        <p className="text-2xl font-bold">490 €</p>
+                        <p className="text-2xl font-bold">
+                            {PRICING.tenWalkTicket.price} {PRICING.tenWalkTicket.currency}
+                        </p>
                         <p className="text-sm text-gray-600">
-                            Für zeitlich Flexible
+                            {PRICING.tenWalkTicket.description}
                         </p>
                     </div>
+                </div>
+                <div className="mt-8 text-center">
+                    <a
+                        href="#contact"
+                        className="inline-block rounded-md bg-white px-8 py-3 text-lg text-green transition-colors hover:bg-gray-100"
+                    >
+                        Beratungsgespräch vereinbaren
+                    </a>
                 </div>
             </section>
 
@@ -158,6 +166,9 @@ export const MainSection = () => {
                 </div>
             </section>
 
+            {/* FAQ */}
+            <FAQ />
+
             {/* CONTACT */}
             <section
                 id="contact"
@@ -169,26 +180,7 @@ export const MainSection = () => {
                 <p className="mb-6 text-xl">
                     Wir freuen uns auf deine Nachricht!
                 </p>
-                <div className="flex flex-col items-center gap-4 text-xl">
-                    <div className="flex items-center gap-2">
-                        <Mail />
-                        <a
-                            href="mailto:walk-with-us@web.de"
-                            className="underline hover:text-blue-600"
-                        >
-                            walk-with-us@web.de
-                        </a>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Phone />
-                        <a
-                            href="tel:+491724067926"
-                            className="underline hover:text-blue-600"
-                        >
-                            +49 172 4067926
-                        </a>
-                    </div>
-                </div>
+                <ContactForm />
             </section>
         </div>
     )

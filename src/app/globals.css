@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 .btn {
     font-size: 1.4rem;
     padding: 14px 30px;

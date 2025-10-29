@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Facebook, Instagram, Menu, PawPrint, X } from 'lucide-react'
 import Link from 'next/link'
+import { SITE, SOCIAL_MEDIA, COLORS, NAV_LINKS } from '@/data/constants'
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -11,16 +12,7 @@ export const Navbar = () => {
         setIsOpen(!isOpen)
     }
 
-    const handleClickAbout = () => {
-        setIsOpen(false)
-    }
-    const handleClickContact = () => {
-        setIsOpen(false)
-    }
-    const handleClickServices = () => {
-        setIsOpen(false)
-    }
-    const handleClickTariffs = () => {
+    const handleMenuClick = () => {
         setIsOpen(false)
     }
     return (
@@ -29,39 +21,20 @@ export const Navbar = () => {
                 <Link className="flex gap-2" href="/">
                     <PawPrint color="white" />
                     <h1 className="text-l font-semibold md:text-lg">
-                        Walk with us - GassiService
+                        {SITE.name}
                     </h1>
                 </Link>
 
                 <div className="hidden space-x-6 text-lg md:flex">
-                    <a
-                        href="#about"
-                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
-                        onClick={handleClickAbout}
-                    >
-                        Über uns
-                    </a>
-                    <a
-                        href="#contact"
-                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
-                        onClick={handleClickContact}
-                    >
-                        Kontakt
-                    </a>
-                    <a
-                        href="#tariffs"
-                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
-                        onClick={handleClickTariffs}
-                    >
-                        Tarife
-                    </a>
-                    <a
-                        href="#comingSoon"
-                        className="cursor-pointer font-light hover:text-gray-400 hover:underline"
-                        onClick={handleClickServices}
-                    >
-                        Coming Soon
-                    </a>
+                    {NAV_LINKS.map((link) => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            className="cursor-pointer font-light hover:text-gray-400 hover:underline"
+                        >
+                            {link.label}
+                        </a>
+                    ))}
                 </div>
 
                 <button className="md:hidden" onClick={handleClick}>
@@ -71,47 +44,29 @@ export const Navbar = () => {
 
             {isOpen && (
                 <div className="top-15 absolute right-0 z-20 mt-4 flex w-full flex-col items-center justify-center space-y-4 border-t border-gray-500 bg-gray-100 px-2 py-4 shadow-lg md:hidden">
+                    {NAV_LINKS.map((link) => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
+                            onClick={handleMenuClick}
+                        >
+                            {link.label}
+                        </a>
+                    ))}
                     <a
-                        href="#about"
-                        className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
-                        onClick={handleClickAbout}
+                        target="_blank"
+                        href={SOCIAL_MEDIA.instagram}
+                        className="flex w-full items-center justify-center p-2"
                     >
-                        Über uns
-                    </a>
-                    <a
-                        href="#contact"
-                        className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
-                        onClick={handleClickContact}
-                    >
-                        Kontakt
-                    </a>
-                    <a
-                        href="#tariffs"
-                        className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
-                        onClick={handleClickTariffs}
-                    >
-                        Tarife
-                    </a>
-                    <a
-                        href="#comingSoon"
-                        className="rounded-sm px-2 py-2 hover:bg-gray-500 hover:text-white"
-                        onClick={handleClickServices}
-                    >
-                        Coming Soon
+                        <Instagram color={COLORS.instagram} />
                     </a>
                     <a
                         target="_blank"
-                        href="https://www.instagram.com/walkwithus_gassiservice/?hl=en"
+                        href={SOCIAL_MEDIA.facebook}
                         className="flex w-full items-center justify-center p-2"
                     >
-                        <Instagram color="#5B6B57" />
-                    </a>
-                    <a
-                        target="_blank"
-                        href="https://www.facebook.com/walkwithusgassiservice"
-                        className="flex w-full items-center justify-center p-2"
-                    >
-                        <Facebook color="#5B6B57" />
+                        <Facebook color={COLORS.facebook} />
                     </a>
                 </div>
             )}

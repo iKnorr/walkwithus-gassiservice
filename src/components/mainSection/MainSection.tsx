@@ -4,7 +4,7 @@ import { HexagonIcon } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import { Hexagon } from '../custom/svg/Hexagon'
-// import { ContactForm } from '../custom/contactForm/ContactForm'
+import { ContactForm } from '../custom/contactForm/ContactForm'
 import { FAQ } from '../custom/faq/FAQ'
 import { PRICING } from '@/data/constants'
 
@@ -124,7 +124,8 @@ export const MainSection = () => {
                     <div className="w-[300px] rounded-2xl border bg-gray-100 p-4 text-center shadow-sm">
                         <p className="text-lg font-semibold">10 er Karte</p>
                         <p className="text-2xl font-bold">
-                            {PRICING.tenWalkTicket.price} {PRICING.tenWalkTicket.currency}
+                            {PRICING.tenWalkTicket.price}{' '}
+                            {PRICING.tenWalkTicket.currency}
                         </p>
                         <p className="text-sm text-gray-600">
                             {PRICING.tenWalkTicket.description}
@@ -180,7 +181,7 @@ export const MainSection = () => {
                 <p className="mb-6 text-xl">
                     Wir freuen uns auf deine Nachricht!
                 </p>
-                {/* <ContactForm /> */}
+                <ContactForm />
             </section>
         </div>
     )

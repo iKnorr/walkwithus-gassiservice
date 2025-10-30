@@ -11,9 +11,13 @@ export const ContactForm = () => {
         phone: '',
         message: '',
     })
-    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+    const [status, setStatus] = useState<
+        'idle' | 'sending' | 'success' | 'error'
+    >('idle')
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -84,7 +88,7 @@ export const ContactForm = () => {
                 </div>
             </div>
 
-            <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
+            {/* <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
                 <h3 className="mb-4 text-2xl font-semibold">Kontaktformular</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
@@ -192,7 +196,7 @@ export const ContactForm = () => {
                 <p className="mt-4 text-center text-xs text-gray-500">
                     * Pflichtfelder
                 </p>
-            </div>
+            </div> */}
         </div>
     )
 }

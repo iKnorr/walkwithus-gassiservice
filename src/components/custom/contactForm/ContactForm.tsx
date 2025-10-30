@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Mail, Phone, Send } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { CONTACT } from '@/data/constants'
 
 export const ContactForm = () => {
@@ -67,27 +67,6 @@ export const ContactForm = () => {
 
     return (
         <div className="w-full">
-            <div className="mb-8 flex flex-col items-center gap-4 text-xl">
-                <div className="flex items-center gap-2">
-                    <Mail />
-                    <a
-                        href={`mailto:${CONTACT.email}`}
-                        className="underline hover:text-blue-600"
-                    >
-                        {CONTACT.email}
-                    </a>
-                </div>
-                <div className="flex items-center gap-2">
-                    <Phone />
-                    <a
-                        href={`tel:${CONTACT.phone}`}
-                        className="underline hover:text-blue-600"
-                    >
-                        {CONTACT.phoneFormatted}
-                    </a>
-                </div>
-            </div>
-
             <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
                 <h3 className="mb-4 text-2xl font-semibold">Kontaktformular</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -188,7 +167,8 @@ export const ContactForm = () => {
                     )}
                     {status === 'error' && (
                         <p className="text-center text-sm text-red-600">
-                            Es gab ein Problem. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.
+                            Es gab ein Problem. Bitte versuchen Sie es erneut
+                            oder kontaktieren Sie uns direkt.
                         </p>
                     )}
                 </form>

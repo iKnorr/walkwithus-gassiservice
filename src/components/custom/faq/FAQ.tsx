@@ -15,7 +15,7 @@ const faqData: FAQItem[] = [
     },
     {
         question: 'Wie lange dauert ein typischer Spaziergang?',
-        answer: 'Ein Standard-Spaziergang dauert etwa 60 Minuten. Die genaue Dauer kann je nach Bedürfnissen deines Hundes angepasst werden.',
+        answer: 'Ein Standard-Spaziergang dauert etwa 2 bis 2,5 Stunden. Die genaue Dauer kann je nach Bedürfnissen deines Hundes angepasst werden.',
     },
     {
         question: 'Was passiert bei schlechtem Wetter?',
@@ -34,7 +34,8 @@ const faqData: FAQItem[] = [
         answer: 'Kontaktiere uns einfach per E-Mail oder Telefon. Wir besprechen dann die Bedürfnisse deines Hundes und finden gemeinsam passende Termine.',
     },
     {
-        question: 'Was ist der Unterschied zwischen der Platzgarantie und der 10er Karte?',
+        question:
+            'Was ist der Unterschied zwischen der Platzgarantie und der 10er Karte?',
         answer: 'Mit der Platzgarantie (41€ pro Runde) sicherst du dir einen festen Platz in unserem Programm. Die 10er Karte (490€) ist ideal für zeitlich flexible Hundebesitzer, die nicht regelmäßige Termine benötigen.',
     },
 ]

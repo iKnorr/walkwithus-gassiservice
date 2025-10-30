@@ -4,7 +4,7 @@ import { HexagonIcon } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import { Hexagon } from '../custom/svg/Hexagon'
-import { ContactForm } from '../custom/contactForm/ContactForm'
+// import { ContactForm } from '../custom/contactForm/ContactForm'
 import { FAQ } from '../custom/faq/FAQ'
 import { PRICING } from '@/data/constants'
 
@@ -180,7 +180,7 @@ export const MainSection = () => {
                 <p className="mb-6 text-xl">
                     Wir freuen uns auf deine Nachricht!
                 </p>
-                <ContactForm />
+                {/* <ContactForm /> */}
             </section>
         </div>
     )

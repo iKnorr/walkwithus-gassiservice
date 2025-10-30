@@ -68,6 +68,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: SITE_URL,
     },
+    verification: {
+        google: '1ub0w0ddAs9HMbBMH2ivTtDI4neehwgXabfasClXd0Y',
+    },
 }
 
 export default function RootLayout({
@@ -180,10 +183,6 @@ export default function RootLayout({
     return (
         <html className="scroll-smooth" lang="de" dir="ltr">
             <head>
-                <meta
-                    name="google-site-verification"
-                    content="1ub0w0ddAs9HMbBMH2ivTtDI4neehwgXabfasClXd0Y"
-                />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{

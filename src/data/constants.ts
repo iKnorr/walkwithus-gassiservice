@@ -5,7 +5,7 @@ export const CONTACT = {
     phoneFormatted: '+49 172 4067926',
     // TODO: Get your free access key from https://web3forms.com
     // Register with heike@walkwithus-gassiservice.com and replace 'YOUR_ACCESS_KEY_HERE'
-    web3formsAccessKey: 'YOUR_ACCESS_KEY_HERE',
+    web3formsAccessKey: '1c280bea-e0a7-42dc-8d97-11b5cdc88039',
 } as const
 
 // Social Media Links

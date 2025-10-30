@@ -1,6 +1,6 @@
 // Contact Information
 export const CONTACT = {
-    email: 'walk-with-us@web.de',
+    email: 'heike@walkwithus-gassiservice.com',
     phone: '+491724067926',
     phoneFormatted: '+49 172 4067926',
     // Get your free access key from https://web3forms.com

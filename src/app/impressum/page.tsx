@@ -38,10 +38,10 @@ export default function ImpressumPage() {
                     <p className="mb-2">
                         E-Mail:{' '}
                         <a
-                            href="mailto:walk-with-us@web.de"
+                            href="mailto:heike@walkwithus-gassiservice.com"
                             className="text-blue-600 hover:underline"
                         >
-                            walk-with-us@web.de
+                            heike@walkwithus-gassiservice.com
                         </a>
                     </p>
                 </section>

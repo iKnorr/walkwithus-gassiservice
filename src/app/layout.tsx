@@ -87,7 +87,7 @@ export default function RootLayout({
             'Professioneller Gassiservice in München. Liebevolle Spaziergänge und zuverlässige Hundebetreuung für deinen Vierbeiner.',
         url: SITE_URL,
         telephone: '+491724067926',
-        email: 'walk-with-us@web.de',
+        email: 'heike@walkwithus-gassiservice.com',
         priceRange: '€€',
         image: `${SITE_URL}${OG_IMAGE}`,
         address: {
@@ -122,7 +122,7 @@ export default function RootLayout({
         url: SITE_URL,
         logo: `${SITE_URL}/favicon.ico`,
         description: 'Gassi-Service mit Herz in München.',
-        email: 'walk-with-us@web.de',
+        email: 'heike@walkwithus-gassiservice.com',
         telephone: '+491724067926',
         address: {
             '@type': 'PostalAddress',

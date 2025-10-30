@@ -29,8 +29,8 @@ export const sections = [
                 <div className="mt-4 flex flex-col items-start justify-center gap-2">
                     <div className="flex gap-2">
                         <Mail />
-                        <a href="mailto:kontakt@walkwithus.de">
-                            walk-with-us@web.de
+                        <a href="mailto:heike@walkwithus-gassiservice.com">
+                            heike@walkwithus-gassiservice.com
                         </a>
                     </div>
                     <div className="mt-2 flex gap-2">

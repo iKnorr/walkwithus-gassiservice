@@ -44,7 +44,7 @@ Web3Forms is a free service that sends form submissions directly to your email. 
 
 1. Go to https://web3forms.com
 2. Click "Get Started Free"
-3. Enter your email address: `walk-with-us@web.de`
+3. Enter your email address: `heike@walkwithus-gassiservice.com`
 4. Check your email for the access key
 5. Copy the access key (it looks like: `a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6`)
 
@@ -65,7 +65,7 @@ Web3Forms is a free service that sends form submissions directly to your email. 
 1. Run the development server: `npm run dev`
 2. Navigate to the contact section
 3. Fill out and submit the test form
-4. Check your email (`walk-with-us@web.de`) for the submission
+4. Check your email (`heike@walkwithus-gassiservice.com`) for the submission
 
 ---
 
@@ -171,7 +171,7 @@ Your new contact form includes:
 - Success/error messages
 - Email notifications via Web3Forms
 
-When someone submits the form, you'll receive an email at `walk-with-us@web.de` with:
+When someone submits the form, you'll receive an email at `heike@walkwithus-gassiservice.com` with:
 - Subject: "Neue Kontaktanfrage von [Name]"
 - All form field data
 

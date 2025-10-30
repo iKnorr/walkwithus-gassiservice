@@ -3,7 +3,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
     title: 'Impressum | Walk with us - GassiService',
-    description: 'Impressum und rechtliche Informationen von Walk with us - GassiService',
+    description:
+        'Impressum und rechtliche Informationen von Walk with us - GassiService',
     robots: 'noindex, nofollow',
 }
 
@@ -18,9 +19,9 @@ export default function ImpressumPage() {
                         Angaben gemäß § 5 TMG
                     </h2>
                     <p className="mb-2">Walk with us - GassiService</p>
-                    <p className="mb-2">[Ihr Name]</p>
-                    <p className="mb-2">[Ihre Straße und Hausnummer]</p>
-                    <p className="mb-2">[PLZ] München</p>
+                    <p className="mb-2">Heike Knorr</p>
+                    <p className="mb-2">Schluesselbergstrasse 33</p>
+                    <p className="mb-2">81673 München</p>
                 </section>
 
                 <section className="mb-8">
@@ -45,7 +46,7 @@ export default function ImpressumPage() {
                     </p>
                 </section>
 
-                <section className="mb-8">
+                {/* <section className="mb-8">
                     <h2 className="mb-4 text-2xl font-semibold">
                         Umsatzsteuer-ID
                     </h2>
@@ -54,15 +55,15 @@ export default function ImpressumPage() {
                         Umsatzsteuergesetz:
                     </p>
                     <p>[Ihre USt-IdNr.]</p>
-                </section>
+                </section> */}
 
                 <section className="mb-8">
                     <h2 className="mb-4 text-2xl font-semibold">
                         Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
                     </h2>
-                    <p className="mb-2">[Ihr Name]</p>
-                    <p className="mb-2">[Ihre Straße und Hausnummer]</p>
-                    <p className="mb-2">[PLZ] München</p>
+                    <p className="mb-2">Heike Knorr</p>
+                    <p className="mb-2">Schluesselbergstrasse 33</p>
+                    <p className="mb-2">81673 München</p>
                 </section>
 
                 <section className="mb-8">
@@ -98,7 +99,9 @@ export default function ImpressumPage() {
                 </section>
 
                 <section className="mb-8">
-                    <h2 className="mb-4 text-2xl font-semibold">Haftung für Inhalte</h2>
+                    <h2 className="mb-4 text-2xl font-semibold">
+                        Haftung für Inhalte
+                    </h2>
                     <p className="mb-4">
                         Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für
                         eigene Inhalte auf diesen Seiten nach den allgemeinen
@@ -120,7 +123,9 @@ export default function ImpressumPage() {
                 </section>
 
                 <section className="mb-8">
-                    <h2 className="mb-4 text-2xl font-semibold">Haftung für Links</h2>
+                    <h2 className="mb-4 text-2xl font-semibold">
+                        Haftung für Links
+                    </h2>
                     <p className="mb-4">
                         Unser Angebot enthält Links zu externen Websites
                         Dritter, auf deren Inhalte wir keinen Einfluss haben.
@@ -142,7 +147,9 @@ export default function ImpressumPage() {
                 </section>
 
                 <section className="mb-8">
-                    <h2 className="mb-4 text-2xl font-semibold">Urheberrecht</h2>
+                    <h2 className="mb-4 text-2xl font-semibold">
+                        Urheberrecht
+                    </h2>
                     <p className="mb-4">
                         Die durch die Seitenbetreiber erstellten Inhalte und
                         Werke auf diesen Seiten unterliegen dem deutschen
@@ -165,11 +172,8 @@ export default function ImpressumPage() {
                     </p>
                 </section>
 
-                <div className="mt-12 pt-8 border-t">
-                    <Link
-                        href="/"
-                        className="text-blue-600 hover:underline"
-                    >
+                <div className="mt-12 border-t pt-8">
+                    <Link href="/" className="text-blue-600 hover:underline">
                         Zurück zur Startseite
                     </Link>
                 </div>

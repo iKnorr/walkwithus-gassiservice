@@ -75,8 +75,134 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    const localBusinessSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        '@id': `${SITE_URL}/#localbusiness`,
+        name: 'Walk with us - GassiService',
+        description:
+            'Professioneller Gassiservice in München. Liebevolle Spaziergänge und zuverlässige Hundebetreuung für deinen Vierbeiner.',
+        url: SITE_URL,
+        telephone: '+491724067926',
+        email: 'walk-with-us@web.de',
+        priceRange: '€€',
+        image: `${SITE_URL}${OG_IMAGE}`,
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'München',
+            addressRegion: 'Bayern',
+            addressCountry: 'DE',
+        },
+        areaServed: {
+            '@type': 'City',
+            name: 'München',
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: '48.1351',
+            longitude: '11.5820',
+        },
+        openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: [
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+            ],
+            opens: '09:00',
+            closes: '18:00',
+        },
+        sameAs: [],
+    }
+
+    const organizationSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
+        name: 'Walk with us - GassiService',
+        url: SITE_URL,
+        logo: `${SITE_URL}/favicon.ico`,
+        description: 'Gassi-Service mit Herz in München.',
+        email: 'walk-with-us@web.de',
+        telephone: '+491724067926',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'München',
+            addressRegion: 'Bayern',
+            addressCountry: 'DE',
+        },
+    }
+
+    const serviceSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        '@id': `${SITE_URL}/#service`,
+        serviceType: 'Gassi-Service / Dog Walking',
+        provider: {
+            '@id': `${SITE_URL}/#organization`,
+        },
+        areaServed: {
+            '@type': 'City',
+            name: 'München',
+        },
+        hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Gassi-Service Angebote',
+            itemListElement: [
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: 'Einzelner Spaziergang',
+                        description:
+                            'Professioneller Gassi-Service mit Platzgarantie',
+                    },
+                    price: '41',
+                    priceCurrency: 'EUR',
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: '10er-Ticket',
+                        description:
+                            '10 Spaziergänge für zeitlich Flexible',
+                    },
+                    price: '490',
+                    priceCurrency: 'EUR',
+                },
+            ],
+        },
+    }
+
     return (
         <html className="scroll-smooth" lang="de" dir="ltr">
+            <head>
+                <meta
+                    name="google-site-verification"
+                    content="1ub0w0ddAs9HMbBMH2ivTtDI4neehwgXabfasClXd0Y"
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(localBusinessSchema),
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(organizationSchema),
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(serviceSchema),
+                    }}
+                />
+            </head>
             <body className={`${barlow.className}`}>
                 <Navbar />
                 <div className="min-h-screen">{children}</div>

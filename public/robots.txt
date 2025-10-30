@@ -1,0 +1,15 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow specific paths
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.walkwithus-gassiservice.com/sitemap.xml
+
+# Crawl-delay (optional, set in seconds)
+# Crawl-delay: 10
+
+# Host directive (preferred domain)
+Host: https://www.walkwithus-gassiservice.com

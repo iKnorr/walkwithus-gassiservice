@@ -107,13 +107,7 @@ export default function RootLayout({
         },
         openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
-            dayOfWeek: [
-                'Monday',
-                'Tuesday',
-                'Wednesday',
-                'Thursday',
-                'Friday',
-            ],
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
             opens: '09:00',
             closes: '18:00',
         },
@@ -170,8 +164,7 @@ export default function RootLayout({
                     itemOffered: {
                         '@type': 'Service',
                         name: '10er-Ticket',
-                        description:
-                            '10 Spaziergänge für zeitlich Flexible',
+                        description: '10 Spaziergänge für zeitlich Flexible',
                     },
                     price: '490',
                     priceCurrency: 'EUR',

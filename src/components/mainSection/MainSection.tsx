@@ -64,7 +64,7 @@ export const MainSection = () => {
                         Gesellschaft.
                     </p>
                     <p className="text-xl">
-                        „Us" – das sind meine beiden Hündinnen Lotti und Stellar
+                        &ldquo;Us&rdquo; – das sind meine beiden Hündinnen Lotti und Stellar
                         und ich. Gemeinsam lieben wir es, durch die Wälder rund
                         um München und in den Isarauen zu streifen. Auf unseren
                         abwechslungsreichen Ausflügen freuen wir uns immer über

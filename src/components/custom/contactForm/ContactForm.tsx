@@ -1,70 +1,69 @@
 'use client'
 
-import React from 'react'
-import { Mail, Phone } from 'lucide-react'
+import React, { useState } from 'react'
+import { Mail, Phone, Send } from 'lucide-react'
 import { CONTACT } from '@/data/constants'
 
 export const ContactForm = () => {
-    // Form functionality commented out until properly linked
-    // const [formData, setFormData] = useState({
-    //     name: '',
-    //     email: '',
-    //     phone: '',
-    //     message: '',
-    // })
-    // const [status, setStatus] = useState<
-    //     'idle' | 'sending' | 'success' | 'error'
-    // >('idle')
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+    })
+    const [status, setStatus] = useState<
+        'idle' | 'sending' | 'success' | 'error'
+    >('idle')
 
-    // const handleChange = (
-    //     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    // ) => {
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.name]: e.target.value,
-    //     })
-    // }
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        })
+    }
 
-    // const handleSubmit = async (e: React.FormEvent) => {
-    //     e.preventDefault()
-    //     setStatus('sending')
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setStatus('sending')
 
-    //     try {
-    //         // Using Web3Forms API
-    //         const response = await fetch('https://api.web3forms.com/submit', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 Accept: 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //                 access_key: CONTACT.web3formsAccessKey,
-    //                 name: formData.name,
-    //                 email: formData.email,
-    //                 phone: formData.phone,
-    //                 message: formData.message,
-    //                 subject: `Neue Kontaktanfrage von ${formData.name}`,
-    //             }),
-    //         })
+        try {
+            // Using Web3Forms API
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({
+                    access_key: CONTACT.web3formsAccessKey,
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
+                    subject: `Neue Kontaktanfrage von ${formData.name}`,
+                }),
+            })
 
-    //         const result = await response.json()
+            const result = await response.json()
 
-    //         if (result.success) {
-    //             setStatus('success')
-    //             setFormData({ name: '', email: '', phone: '', message: '' })
+            if (result.success) {
+                setStatus('success')
+                setFormData({ name: '', email: '', phone: '', message: '' })
 
-    //             // Reset success message after 5 seconds
-    //             setTimeout(() => {
-    //                 setStatus('idle')
-    //             }, 5000)
-    //         } else {
-    //             setStatus('error')
-    //         }
-    //     } catch (error) {
-    //         console.error('Form submission error:', error)
-    //         setStatus('error')
-    //     }
-    // }
+                // Reset success message after 5 seconds
+                setTimeout(() => {
+                    setStatus('idle')
+                }, 5000)
+            } else {
+                setStatus('error')
+            }
+        } catch (error) {
+            console.error('Form submission error:', error)
+            setStatus('error')
+        }
+    }
 
     return (
         <div className="w-full">
@@ -89,7 +88,7 @@ export const ContactForm = () => {
                 </div>
             </div>
 
-            {/* <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
+            <div className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
                 <h3 className="mb-4 text-2xl font-semibold">Kontaktformular</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
@@ -184,7 +183,7 @@ export const ContactForm = () => {
 
                     {status === 'success' && (
                         <p className="text-center text-sm text-green">
-                            Vielen Dank! Ihre Nachricht wurde geöffnet.
+                            Vielen Dank! Ihre Nachricht wurde gesendet.
                         </p>
                     )}
                     {status === 'error' && (
@@ -197,7 +196,7 @@ export const ContactForm = () => {
                 <p className="mt-4 text-center text-xs text-gray-500">
                     * Pflichtfelder
                 </p>
-            </div> */}
+            </div>
         </div>
     )
 }

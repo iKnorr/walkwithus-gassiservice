@@ -3,7 +3,8 @@ export const CONTACT = {
     email: 'heike@walkwithus-gassiservice.com',
     phone: '+491724067926',
     phoneFormatted: '+49 172 4067926',
-    // Get your free access key from https://web3forms.com
+    // TODO: Get your free access key from https://web3forms.com
+    // Register with heike@walkwithus-gassiservice.com and replace 'YOUR_ACCESS_KEY_HERE'
     web3formsAccessKey: 'YOUR_ACCESS_KEY_HERE',
 } as const
 

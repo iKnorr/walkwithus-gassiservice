@@ -15,22 +15,30 @@ const dogImages = [
     { src: '/images/dogs-8.webp', alt: 'Dogs having fun 4' },
 ]
 
-const comingSoonImages = [
+const comingSoonServices = [
     {
-        src: '/images/dog-training.webp',
-        alt: 'individual dog training',
+        imageSrc: '/images/training-icon.webp',
+        title: 'Einzelstundentraining',
+        description:
+            'Individuelle Betreuung für dich und deinen Hund – abgestimmt auf eure Bedürfnisse.',
     },
     {
-        src: '/images/mantrailing.webp',
-        alt: 'mantrailing dog training',
+        imageSrc: '/images/mantrailing-icon.webp',
+        title: 'Mantrailing',
+        description:
+            'Gemeinsam auf Spurensuche – artgerechte Auslastung für Nasenarbeiter.',
     },
     {
-        src: '/images/social-walks.webp',
-        alt: 'social dog walks',
+        imageSrc: '/images/social-walks-icon.webp',
+        title: 'Social Walks',
+        description:
+            'Geführte Spaziergänge in der Gruppe – entspanntes Miteinander statt wildem Durcheinander.',
     },
     {
-        src: '/images/dog-bike-training.webp',
-        alt: 'dog bike training',
+        imageSrc: '/images/bike-training-icon.webp',
+        title: 'Lastenrad-Gewöhnung',
+        description:
+            'Schritt für Schritt zur sicheren Fahrt – stressfreie Einführung ans Lastenrad.',
     },
 ]
 
@@ -64,11 +72,11 @@ export const MainSection = () => {
                         Gesellschaft.
                     </p>
                     <p className="text-xl">
-                        &ldquo;Us&rdquo; – das sind meine beiden Hündinnen Lotti und Stellar
-                        und ich. Gemeinsam lieben wir es, durch die Wälder rund
-                        um München und in den Isarauen zu streifen. Auf unseren
-                        abwechslungsreichen Ausflügen freuen wir uns immer über
-                        neue vierbeinige Begleiter!
+                        &ldquo;Us&rdquo; – das sind meine beiden Hündinnen Lotti
+                        und Stellar und ich. Gemeinsam lieben wir es, durch die
+                        Wälder rund um München und in den Isarauen zu streifen.
+                        Auf unseren abwechslungsreichen Ausflügen freuen wir uns
+                        immer über neue vierbeinige Begleiter!
                     </p>
                     <div className="mt-8">
                         <a
@@ -145,23 +153,36 @@ export const MainSection = () => {
             {/* COMING SOON */}
             <section
                 id="comingSoon"
-                className="flex w-full flex-col items-center gap-10 bg-white px-10 py-12 md:py-20"
+                className="flex w-full flex-col items-center bg-white px-6 py-12 md:px-10 md:py-20"
             >
                 <h2 className="mb-4 text-4xl font-medium italic md:mb-6 md:text-7xl">
                     Coming Soon
                 </h2>
-                <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-4">
-                    {comingSoonImages?.map((image, index) => (
+                <p className="mb-10 text-center text-lg text-gray-700 md:text-xl">
+                    Bald neu bei <strong>Walk with us</strong> – mit Herz,
+                    Know-how und Pfotengefühl
+                </p>
+                <div className="grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    {comingSoonServices.map((service, index) => (
                         <div
                             key={index}
-                            className="relative aspect-[2/3] w-full"
+                            className="group flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
                         >
-                            <Image
-                                src={image.src}
-                                alt={image.alt}
-                                fill
-                                className="rounded-lg object-cover"
-                            />
+                            <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-green/10">
+                                <Image
+                                    src={service.imageSrc}
+                                    alt={service.title}
+                                    width={64}
+                                    height={64}
+                                    className="object-contain"
+                                />
+                            </div>
+                            <h3 className="mb-3 text-xl font-semibold text-gray-800">
+                                {service.title}
+                            </h3>
+                            <p className="text-sm leading-relaxed text-gray-600">
+                                {service.description}
+                            </p>
                         </div>
                     ))}
                 </div>
@@ -173,7 +194,7 @@ export const MainSection = () => {
             {/* CONTACT */}
             <section
                 id="contact"
-                className="w-full bg-gray-100 px-6 py-16 text-center md:py-24"
+                className="w-full bg-white px-6 py-16 text-center md:py-24"
             >
                 <h2 className="mb-4 text-4xl font-medium italic md:mb-6 md:text-7xl">
                     Kontakt

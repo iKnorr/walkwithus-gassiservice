@@ -48,7 +48,7 @@ export const FAQ = () => {
     }
 
     return (
-        <section id="faq" className="w-full bg-white px-6 py-12 md:py-20">
+        <section id="faq" className="w-full bg-gray-100 px-6 py-12 md:py-20">
             <div className="mx-auto max-w-3xl">
                 <h2 className="mb-8 text-center text-4xl font-medium italic md:text-7xl">
                     Häufig gestellte Fragen

@@ -30,13 +30,13 @@ export const HeroPost = () => {
                             Gassi-Service mit Herz in München.
                         </h1>
                         <p className="animate-fadeIn text-lg text-white drop-shadow-md sm:text-xl md:text-2xl">
-                            Professionelle Hundebetreuung seit 2018
+                            Professionelle Hundebetreuung seit 2017
                         </p>
                     </div>
 
                     <Link
                         href="#contact"
-                        className="animate-fadeIn group mt-4 inline-flex items-center justify-center rounded-lg bg-green px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-green/90 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green/50"
+                        className="group mt-4 inline-flex animate-fadeIn items-center justify-center rounded-lg bg-green px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-green/90 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green/50"
                         aria-label="Kontaktformular öffnen"
                     >
                         Jetzt anfragen

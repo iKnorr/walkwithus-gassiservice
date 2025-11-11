@@ -27,11 +27,11 @@ export const Navbar = () => {
         setIsOpen(false)
     }
     return (
-        <nav className={`fixed z-30 h-20 w-full items-center justify-center p-4 transition-all duration-300 ${
-            isScrolled
-                ? 'bg-green shadow-md'
-                : 'bg-transparent backdrop-blur-sm'
-        }`}>
+        <nav
+            className={`fixed z-30 h-20 w-full items-center justify-center p-4 transition-all duration-300 ${
+                isScrolled ? 'bg-green shadow-md' : 'bg-transparent'
+            }`}
+        >
             <div className="flex h-full w-full items-center justify-between text-white">
                 <Link className="flex gap-2" href="/">
                     <PawPrint color="white" />

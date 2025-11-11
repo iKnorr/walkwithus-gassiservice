@@ -1,12 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Facebook, Instagram, Menu, PawPrint, X } from 'lucide-react'
 import Link from 'next/link'
 import { SITE, SOCIAL_MEDIA, COLORS, NAV_LINKS } from '@/data/constants'
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY
+            setIsScrolled(scrollPosition > 50)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     const handleClick = () => {
         setIsOpen(!isOpen)
@@ -16,7 +27,11 @@ export const Navbar = () => {
         setIsOpen(false)
     }
     return (
-        <nav className="fixed z-30 h-20 w-full items-center justify-center bg-green p-4 shadow-md">
+        <nav className={`fixed z-30 h-20 w-full items-center justify-center p-4 transition-all duration-300 ${
+            isScrolled
+                ? 'bg-green shadow-md'
+                : 'bg-transparent backdrop-blur-sm'
+        }`}>
             <div className="flex h-full w-full items-center justify-between text-white">
                 <Link className="flex gap-2" href="/">
                     <PawPrint color="white" />

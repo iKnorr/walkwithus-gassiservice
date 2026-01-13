@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Send } from 'lucide-react'
 import { CONTACT } from '@/data/constants'
 
@@ -14,6 +14,16 @@ export const ContactForm = () => {
     const [status, setStatus] = useState<
         'idle' | 'sending' | 'success' | 'error'
     >('idle')
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+    // Cleanup timeout on unmount to prevent memory leak
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+        }
+    }, [])
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -53,7 +63,7 @@ export const ContactForm = () => {
                 setFormData({ name: '', email: '', phone: '', message: '' })
 
                 // Reset success message after 5 seconds
-                setTimeout(() => {
+                timeoutRef.current = setTimeout(() => {
                     setStatus('idle')
                 }, 5000)
             } else {

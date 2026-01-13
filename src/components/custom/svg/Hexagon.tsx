@@ -21,7 +21,7 @@ export const Hexagon = () => {
 
             <g id="SVGRepo_iconCarrier">
                 <polygon
-                    style={{ fill: '#525252}' }}
+                    style={{ fill: '' }}
                     points="25.045,128 256,0 486.955,128 486.955,384 256,512 25.045,384 "
                 />
             </g>

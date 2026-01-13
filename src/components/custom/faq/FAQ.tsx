@@ -4,36 +4,44 @@ import React, { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 
 interface FAQItem {
+    id: string
     question: string
     answer: string
 }
 
 const faqData: FAQItem[] = [
     {
+        id: 'location',
         question: 'Wo bietet ihr eure Dienstleistungen an?',
         answer: 'Wir sind in München und den Isarauen tätig, wo wir regelmäßig durch die Wälder und entlang der Isar spazieren.',
     },
     {
+        id: 'duration',
         question: 'Wie lange dauert ein typischer Spaziergang?',
         answer: 'Ein Standard-Spaziergang dauert etwa 2 bis 2,5 Stunden.',
     },
     {
+        id: 'weather',
         question: 'Was passiert bei schlechtem Wetter?',
         answer: 'Wir gehen bei jedem Wetter spazieren! Unsere Hunde sind wetterfest ausgerüstet, und wir passen die Route entsprechend an. Nur bei extremen Wetterbedingungen (z.B. Unwetter) sprechen wir eine alternative Lösung ab.',
     },
     {
+        id: 'multiple-dogs',
         question: 'Können mehrere Hunde zusammen laufen?',
         answer: 'Ja, soziale Spaziergänge mit mehreren Hunden sind möglich und sogar erwünscht! Wir achten darauf, dass alle Hunde gut miteinander harmonieren.',
     },
     {
+        id: 'breeds',
         question: 'Mit welchen Hunderassen habt ihr Erfahrung?',
         answer: 'Wir haben Erfahrung mit allen Rassen und Größen. Wichtig ist uns vor allem, dass dein Hund sozialverträglich ist und Spaß an gemeinsamen Ausflügen hat.',
     },
     {
+        id: 'booking',
         question: 'Wie kann ich einen Termin vereinbaren?',
         answer: 'Kontaktiere uns einfach per E-Mail oder Telefon. Wir besprechen dann die Bedürfnisse deines Hundes und finden gemeinsam passende Termine.',
     },
     {
+        id: 'pricing',
         question:
             'Was ist der Unterschied zwischen der Platzgarantie und der 10er Karte?',
         answer: 'Mit der Platzgarantie (41€ pro Runde) sicherst du dir einen festen Platz in unserem Programm. Die 10er Karte (490€) ist ideal für zeitlich flexible Hundebesitzer, die nicht regelmäßige Termine benötigen.',
@@ -56,14 +64,14 @@ export const FAQ = () => {
                 <div className="space-y-4">
                     {faqData.map((faq, index) => (
                         <div
-                            key={index}
+                            key={faq.id}
                             className="overflow-hidden rounded-lg border border-gray-200 bg-gray-50"
                         >
                             <button
                                 onClick={() => toggleFAQ(index)}
                                 className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-gray-100"
                                 aria-expanded={openIndex === index}
-                                aria-controls={`faq-answer-${index}`}
+                                aria-controls={`faq-answer-${faq.id}`}
                             >
                                 <span className="pr-4 text-lg font-semibold">
                                     {faq.question}
@@ -76,7 +84,7 @@ export const FAQ = () => {
                                 />
                             </button>
                             <div
-                                id={`faq-answer-${index}`}
+                                id={`faq-answer-${faq.id}`}
                                 className={`overflow-hidden transition-all duration-200 ${
                                     openIndex === index
                                         ? 'max-h-96 opacity-100'

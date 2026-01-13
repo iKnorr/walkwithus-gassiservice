@@ -92,8 +92,8 @@ export const MainSection = () => {
             {/* Gallery */}
             <section className="w-full bg-white px-6 py-8 md:py-12">
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-                    {dogImages.map((img, i) => (
-                        <div key={i} className="relative aspect-[2/3] w-full">
+                    {dogImages.map((img) => (
+                        <div key={img.src} className="relative aspect-[2/3] w-full">
                             <Image
                                 src={img.src}
                                 alt={img.alt}
@@ -163,9 +163,9 @@ export const MainSection = () => {
                     Know-how und Pfotengefühl
                 </p>
                 <div className="grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-                    {comingSoonServices.map((service, index) => (
+                    {comingSoonServices.map((service) => (
                         <div
-                            key={index}
+                            key={service.title}
                             className="group flex flex-col items-center rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
                         >
                             <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-green/10">

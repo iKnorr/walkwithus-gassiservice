@@ -6,6 +6,7 @@ import React from 'react'
 import { Hexagon } from '../custom/svg/Hexagon'
 import { ContactForm } from '../custom/contactForm/ContactForm'
 import { FAQ } from '../custom/faq/FAQ'
+import { ServiceAreaSection } from '../custom/serviceArea/ServiceAreaSection'
 import { PRICING } from '@/data/constants'
 
 const dogImages = [
@@ -149,6 +150,9 @@ export const MainSection = () => {
                     </a>
                 </div>
             </section>
+
+            {/* SERVICE AREA */}
+            <ServiceAreaSection />
 
             {/* COMING SOON */}
             <section

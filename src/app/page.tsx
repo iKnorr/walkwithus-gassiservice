@@ -59,7 +59,7 @@ export default function Home() {
                 name: 'Wie lange dauert ein typischer Spaziergang?',
                 acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Ein Standard-Spaziergang dauert etwa 2 bis 2,5 Stunden. Die genaue Dauer kann je nach Bedürfnissen deines Hundes angepasst werden.',
+                    text: 'Ein Standard-Spaziergang dauert etwa 2 bis 2,5 Stunden.',
                 },
             },
             {

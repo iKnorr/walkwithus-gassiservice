@@ -62,6 +62,8 @@ export const FAQ = () => {
                             <button
                                 onClick={() => toggleFAQ(index)}
                                 className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-gray-100"
+                                aria-expanded={openIndex === index}
+                                aria-controls={`faq-answer-${index}`}
                             >
                                 <span className="pr-4 text-lg font-semibold">
                                     {faq.question}
@@ -74,6 +76,7 @@ export const FAQ = () => {
                                 />
                             </button>
                             <div
+                                id={`faq-answer-${index}`}
                                 className={`overflow-hidden transition-all duration-200 ${
                                     openIndex === index
                                         ? 'max-h-96 opacity-100'

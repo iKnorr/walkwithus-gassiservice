@@ -52,7 +52,12 @@ export const Navbar = () => {
                     ))}
                 </div>
 
-                <button className="md:hidden" onClick={handleClick}>
+                <button
+                    className="md:hidden"
+                    onClick={handleClick}
+                    aria-expanded={isOpen}
+                    aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
+                >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>

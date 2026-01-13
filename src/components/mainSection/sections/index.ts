@@ -1,0 +1,5 @@
+export { AboutSection } from './AboutSection'
+export { GallerySection } from './GallerySection'
+export { TariffsSection } from './TariffsSection'
+export { ComingSoonSection } from './ComingSoonSection'
+export { ContactSection } from './ContactSection'

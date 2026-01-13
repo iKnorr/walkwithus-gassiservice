@@ -4,6 +4,34 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Send } from 'lucide-react'
 import { CONTACT } from '@/data/constants'
 
+// Sanitize input to prevent XSS
+const sanitizeInput = (input: string): string => {
+    return input
+        .replace(/[<>]/g, '') // Remove angle brackets
+        .trim()
+}
+
+// Validation functions
+const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+}
+
+const isValidPhone = (phone: string): boolean => {
+    if (!phone) return true // Phone is optional
+    // German phone numbers: +49, 0049, or starting with 0
+    // Allows formats like: +49 172 1234567, 0172 1234567, +49(0)172-1234567
+    const phoneRegex = /^(\+49|0049|0)[\s\-()\/]*[\d\s\-()\/]{8,15}$/
+    return phoneRegex.test(phone.replace(/\s/g, ' ').trim())
+}
+
+interface FormErrors {
+    name?: string
+    email?: string
+    phone?: string
+    message?: string
+}
+
 export const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -11,6 +39,7 @@ export const ContactForm = () => {
         phone: '',
         message: '',
     })
+    const [errors, setErrors] = useState<FormErrors>({})
     const [status, setStatus] = useState<
         'idle' | 'sending' | 'success' | 'error'
     >('idle')
@@ -25,18 +54,59 @@ export const ContactForm = () => {
         }
     }, [])
 
+    const validateForm = (): boolean => {
+        const newErrors: FormErrors = {}
+
+        if (!formData.name.trim() || formData.name.trim().length < 2) {
+            newErrors.name = 'Bitte geben Sie einen gültigen Namen ein (min. 2 Zeichen)'
+        }
+
+        if (!formData.email.trim() || !isValidEmail(formData.email)) {
+            newErrors.email = 'Bitte geben Sie eine gültige E-Mail-Adresse ein'
+        }
+
+        if (!isValidPhone(formData.phone)) {
+            newErrors.phone = 'Bitte geben Sie eine gültige Telefonnummer ein'
+        }
+
+        if (!formData.message.trim() || formData.message.trim().length < 10) {
+            newErrors.message = 'Bitte geben Sie eine Nachricht ein (min. 10 Zeichen)'
+        }
+
+        setErrors(newErrors)
+        return Object.keys(newErrors).length === 0
+    }
+
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
+        const { name, value } = e.target
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [name]: value,
         })
+        // Clear error when user starts typing
+        if (errors[name as keyof FormErrors]) {
+            setErrors({ ...errors, [name]: undefined })
+        }
     }
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+
+        if (!validateForm()) {
+            return
+        }
+
         setStatus('sending')
+
+        // Sanitize all inputs before sending
+        const sanitizedData = {
+            name: sanitizeInput(formData.name),
+            email: sanitizeInput(formData.email),
+            phone: sanitizeInput(formData.phone),
+            message: sanitizeInput(formData.message),
+        }
 
         try {
             // Using Web3Forms API
@@ -48,11 +118,11 @@ export const ContactForm = () => {
                 },
                 body: JSON.stringify({
                     access_key: CONTACT.web3formsAccessKey,
-                    name: formData.name,
-                    email: formData.email,
-                    phone: formData.phone,
-                    message: formData.message,
-                    subject: `Neue Kontaktanfrage von ${formData.name}`,
+                    name: sanitizedData.name,
+                    email: sanitizedData.email,
+                    phone: sanitizedData.phone,
+                    message: sanitizedData.message,
+                    subject: `Neue Kontaktanfrage von ${sanitizedData.name}`,
                 }),
             })
 
@@ -91,12 +161,22 @@ export const ContactForm = () => {
                             type="text"
                             id="name"
                             name="name"
-                            required
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-green focus:outline-none focus:ring-2 focus:ring-green"
+                            className={`w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 ${
+                                errors.name
+                                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                                    : 'border-gray-300 focus:border-green focus:ring-green'
+                            }`}
                             placeholder="Ihr Name"
+                            aria-invalid={!!errors.name}
+                            aria-describedby={errors.name ? 'name-error' : undefined}
                         />
+                        {errors.name && (
+                            <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.name}
+                            </p>
+                        )}
                     </div>
 
                     <div>
@@ -110,12 +190,22 @@ export const ContactForm = () => {
                             type="email"
                             id="email"
                             name="email"
-                            required
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-green focus:outline-none focus:ring-2 focus:ring-green"
+                            className={`w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 ${
+                                errors.email
+                                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                                    : 'border-gray-300 focus:border-green focus:ring-green'
+                            }`}
                             placeholder="ihre.email@beispiel.de"
+                            aria-invalid={!!errors.email}
+                            aria-describedby={errors.email ? 'email-error' : undefined}
                         />
+                        {errors.email && (
+                            <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.email}
+                            </p>
+                        )}
                     </div>
 
                     <div>
@@ -131,9 +221,20 @@ export const ContactForm = () => {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-green focus:outline-none focus:ring-2 focus:ring-green"
+                            className={`w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 ${
+                                errors.phone
+                                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                                    : 'border-gray-300 focus:border-green focus:ring-green'
+                            }`}
                             placeholder="+49 ..."
+                            aria-invalid={!!errors.phone}
+                            aria-describedby={errors.phone ? 'phone-error' : undefined}
                         />
+                        {errors.phone && (
+                            <p id="phone-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.phone}
+                            </p>
+                        )}
                     </div>
 
                     <div>
@@ -146,13 +247,23 @@ export const ContactForm = () => {
                         <textarea
                             id="message"
                             name="message"
-                            required
                             value={formData.message}
                             onChange={handleChange}
                             rows={5}
-                            className="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-green focus:outline-none focus:ring-2 focus:ring-green"
+                            className={`w-full rounded-md border px-4 py-2 focus:outline-none focus:ring-2 ${
+                                errors.message
+                                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                                    : 'border-gray-300 focus:border-green focus:ring-green'
+                            }`}
                             placeholder="Ihre Nachricht an uns..."
+                            aria-invalid={!!errors.message}
+                            aria-describedby={errors.message ? 'message-error' : undefined}
                         />
+                        {errors.message && (
+                            <p id="message-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.message}
+                            </p>
+                        )}
                     </div>
 
                     <button

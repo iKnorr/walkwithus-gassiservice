@@ -58,3 +58,8 @@ export const COLORS = {
     instagram: '#5B6B57',
     facebook: '#5B6B57',
 } as const
+
+// Instagram Embed (Elfsight)
+export const INSTAGRAM_EMBED: { code: string } = {
+    code: '<script src="https://elfsight.com/platform.js" async></script><div class="elfsight-app-9b0b0c71-e429-4edf-8c3b-6c8c0342106e" data-elfsight-app-lazy></div>',
+}

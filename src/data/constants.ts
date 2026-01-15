@@ -57,3 +57,10 @@ export const COLORS = {
     instagram: '#5B6B57',
     facebook: '#5B6B57',
 } as const
+
+// Instagram Embed
+// To set up: Visit embedsocial.com or elfsight.com, connect your Instagram,
+// customize the widget, and paste the embed code below
+export const INSTAGRAM_EMBED: { code: string } = {
+    code: '', // Paste your embed code here
+}

@@ -3,7 +3,7 @@
 import { FAQ } from '../custom/faq/FAQ'
 import {
     AboutSection,
-    GallerySection,
+    InstagramSection,
     TariffsSection,
     ComingSoonSection,
     ContactSection,
@@ -13,7 +13,7 @@ export const MainSection = () => {
     return (
         <div className="flex w-full flex-col items-center">
             <AboutSection />
-            <GallerySection />
+            <InstagramSection />
             <TariffsSection />
             <ComingSoonSection />
             <FAQ />

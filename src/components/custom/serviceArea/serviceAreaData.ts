@@ -1,7 +1,6 @@
 export interface ServiceArea {
     id: string
     name: string
-    description: string
     coordinates: google.maps.LatLngLiteral[]
     color: string
 }
@@ -10,7 +9,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     {
         id: 'altstadt-lehel',
         name: 'Altstadt-Lehel',
-        description: 'Historisches Zentrum mit Englischem Garten',
         coordinates: [
             { lat: 48.1396451, lng: 11.5656601 },
             { lat: 48.1434077, lng: 11.5737805 },
@@ -40,7 +38,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     {
         id: 'ludwigsvorstadt-isarvorstadt',
         name: 'Ludwigsvorstadt-Isarvorstadt',
-        description: 'Gärtnerplatz & Glockenbach - lebendige Viertel',
         coordinates: [
             { lat: 48.131746, lng: 11.586525 },
             { lat: 48.1283585, lng: 11.5836562 },
@@ -67,7 +64,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     {
         id: 'au-haidhausen',
         name: 'Au-Haidhausen',
-        description: 'Charmante Viertel direkt an der Isar',
         coordinates: [
             { lat: 48.1222148, lng: 11.5693244 },
             { lat: 48.1272801, lng: 11.5786773 },
@@ -93,7 +89,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     {
         id: 'berg-am-laim',
         name: 'Berg am Laim',
-        description: 'Grünes Viertel im Münchner Osten',
         coordinates: [
             { lat: 48.1341265, lng: 11.6536499 },
             { lat: 48.1285182, lng: 11.6565257 },
@@ -123,7 +118,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     {
         id: 'obergiesing-fasangarten',
         name: 'Obergiesing-Fasangarten',
-        description: 'Authentisches Münchner Viertel',
         coordinates: [
             { lat: 48.1225959, lng: 11.5980486 },
             { lat: 48.1206867, lng: 11.5963876 },
@@ -158,7 +152,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     {
         id: 'untergiesing-harlaching',
         name: 'Untergiesing-Harlaching',
-        description: 'Grünes Viertel nahe Tierpark',
         coordinates: [
             { lat: 48.0778866, lng: 11.5413264 },
             { lat: 48.0824719, lng: 11.5433936 },
@@ -193,7 +186,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     {
         id: 'ramersdorf-perlach',
         name: 'Ramersdorf-Perlach',
-        description: 'Familienfreundliches Viertel im Südosten',
         coordinates: [
             { lat: 48.0935434, lng: 11.6871126 },
             { lat: 48.0918035, lng: 11.6827716 },
@@ -238,7 +230,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     {
         id: 'gruenwald',
         name: 'Grünwald',
-        description: 'Exklusives Villenviertel im Süden',
         coordinates: [
             { lat: 48.0359564, lng: 11.5092503 },
             { lat: 48.0357769, lng: 11.5094027 },

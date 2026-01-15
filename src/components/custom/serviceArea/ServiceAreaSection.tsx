@@ -21,24 +21,17 @@ export const ServiceAreaSection = () => {
 
                 <ServiceAreaMap />
 
-                <div className="mt-8 flex flex-wrap justify-center gap-4 md:gap-8">
+                <div className="mt-8 flex flex-wrap justify-center gap-4 md:gap-6">
                     {SERVICE_AREAS.map((area) => (
                         <div
                             key={area.id}
-                            className="flex items-center gap-3 rounded-lg bg-white px-4 py-3 shadow-sm"
+                            className="flex items-center gap-2 rounded-lg bg-white px-4 py-2 shadow-sm"
                         >
                             <div
-                                className="h-4 w-4 rounded-full"
+                                className="h-3 w-3 rounded-full"
                                 style={{ backgroundColor: area.color }}
                             />
-                            <div>
-                                <span className="font-semibold">
-                                    {area.name}
-                                </span>
-                                <p className="text-sm text-gray-600">
-                                    {area.description}
-                                </p>
-                            </div>
+                            <span className="font-medium">{area.name}</span>
                         </div>
                     ))}
                 </div>

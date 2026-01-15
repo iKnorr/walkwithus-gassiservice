@@ -181,6 +181,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
         id: 'ramersdorf-perlach',
         name: 'Ramersdorf-Perlach',
         coordinates: [
+            // Western boundary (original points)
             { lat: 48.0884342, lng: 11.616311 },
             { lat: 48.0943861, lng: 11.6147979 },
             { lat: 48.094568, lng: 11.6088986 },
@@ -194,12 +195,13 @@ export const SERVICE_AREAS: ServiceArea[] = [
             { lat: 48.1208409, lng: 11.6060842 },
             { lat: 48.12101, lng: 11.6103619 },
             { lat: 48.1200522, lng: 11.6241951 },
-            { lat: 48.1174677, lng: 11.6380586 },
-            { lat: 48.1150839, lng: 11.6436919 },
-            { lat: 48.1111265, lng: 11.6495813 },
-            { lat: 48.1108663, lng: 11.6546888 },
-            { lat: 48.1084744, lng: 11.6611361 },
-            { lat: 48.108, lng: 11.615 },
+            // Northern part up to cut line
+            { lat: 48.1180, lng: 11.63 },
+            // Eastern cut boundary (straight line down)
+            { lat: 48.108, lng: 11.63 },
+            { lat: 48.095, lng: 11.63 },
+            { lat: 48.088, lng: 11.625 },
+            // Close back to start
             { lat: 48.0884342, lng: 11.616311 },
         ],
         color: '#7A8C77',

@@ -1,225 +1,170 @@
-# Setup Guide - Walk with us GassiService
+# Setup Guide - Walk with Us GassiService
 
-## ✅ What's Been Done
+## Prerequisites
 
-All improvements have been implemented on the `feature/website-improvements` branch:
+- Node.js 20+
+- npm
+- Google Maps API key (for service area map)
+- Web3Forms access key (for contact form)
 
-1. ✅ Legal pages (Impressum & Datenschutz)
-2. ✅ Functional contact form with Web3Forms integration
-3. ✅ FAQ section with accordion UI
-4. ✅ FAQ added to navigation bar and footer
-5. ✅ Smooth scrolling for anchor links
-6. ✅ CTA buttons throughout the site
-7. ✅ Code cleanup and constants extraction
-8. ✅ "Coming Soon" removed from navigation (replaced with FAQ)
+## Quick Start
 
----
+```bash
+# Install dependencies
+npm install
 
-## 🔧 Setup Steps Required
+# Copy environment template
+cp .env.example .env.local
 
-### Step 1: Fill in Your Legal Information
+# Start development server
+npm run dev
+```
 
-You need to replace placeholders in these files with your actual business information:
+## Environment Setup
 
-#### File: `src/app/impressum/page.tsx`
-Replace the following placeholders:
-- `[Ihr Name]` - Your full name
-- `[Ihre Straße und Hausnummer]` - Your street address
-- `[PLZ]` - Your postal code (e.g., 80331)
-- `[Ihre USt-IdNr.]` - Your VAT ID (if applicable, or remove this section)
+### Google Maps API Key
 
-#### File: `src/app/datenschutz/page.tsx`
-Replace the same placeholders:
-- `[Ihr Name]`
-- `[Ihre Straße und Hausnummer]`
-- `[PLZ]`
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the Maps JavaScript API
+4. Create credentials (API Key)
+5. Add the key to `.env.local`:
+   ```
+   NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key_here
+   ```
 
----
+### Web3Forms Contact Form
 
-### Step 2: Setup Web3Forms (Free Contact Form Service)
-
-Web3Forms is a free service that sends form submissions directly to your email. Here's how to set it up:
-
-#### A. Get Your Free Access Key
-
-1. Go to https://web3forms.com
+1. Go to [web3forms.com](https://web3forms.com)
 2. Click "Get Started Free"
-3. Enter your email address: `heike@walkwithus-gassiservice.com`
-4. Check your email for the access key
-5. Copy the access key (it looks like: `a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6`)
-
-#### B. Add Your Access Key
-
-1. Open the file: `src/data/constants.ts`
-2. Find the line:
+3. Enter your email address
+4. Copy the access key from your email
+5. Add it to `src/data/constants.ts`:
    ```typescript
-   web3formsAccessKey: 'YOUR_ACCESS_KEY_HERE',
-   ```
-3. Replace `YOUR_ACCESS_KEY_HERE` with your actual access key:
-   ```typescript
-   web3formsAccessKey: 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6',
+   web3formsAccessKey: 'your_access_key_here',
    ```
 
-#### C. Test the Form
+## Legal Pages Configuration
 
-1. Run the development server: `npm run dev`
-2. Navigate to the contact section
-3. Fill out and submit the test form
-4. Check your email (`heike@walkwithus-gassiservice.com`) for the submission
+Replace placeholders in these files with your business information:
 
----
+### `src/app/impressum/page.tsx`
+- `[Ihr Name]` - Your full name
+- `[Ihre Straße und Hausnummer]` - Street address
+- `[PLZ]` - Postal code
+- `[Ihre USt-IdNr.]` - VAT ID (if applicable)
 
-## 🚀 Testing Locally
+### `src/app/datenschutz/page.tsx`
+- `[Ihr Name]` - Your full name
+- `[Ihre Straße und Hausnummer]` - Street address
+- `[PLZ]` - Postal code
 
-1. Make sure you're on the correct branch:
-   ```bash
-   git branch
-   # Should show: * feature/website-improvements
-   ```
+## Development Commands
 
-2. Install dependencies (if needed):
-   ```bash
-   npm install
-   ```
+```bash
+npm run dev      # Start dev server with Turbopack (localhost:3000)
+npm run build    # Build for static export
+npm run lint     # Run ESLint
+npm start        # Start production server
+```
 
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
+## Testing Checklist
 
-4. Open http://localhost:3000 in your browser
+- [ ] Navigation links work (Über uns, Tarife, FAQ, Kontakt)
+- [ ] Smooth scrolling functions correctly
+- [ ] FAQ accordion opens/closes
+- [ ] Contact form submits successfully
+- [ ] Mobile menu works
+- [ ] Legal pages load (/impressum, /datenschutz)
+- [ ] Service area map displays correctly
+- [ ] Footer links work
 
-5. Test the following:
-   - [ ] Click navigation links (Über uns, Tarife, FAQ, Kontakt)
-   - [ ] Test smooth scrolling
-   - [ ] Open/close FAQ questions
-   - [ ] Submit contact form (after adding Web3Forms key)
-   - [ ] Test mobile menu
-   - [ ] Visit `/impressum` and `/datenschutz` pages
-   - [ ] Check footer links
+## Project Structure
 
----
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Home page
+│   ├── layout.tsx         # Root layout with metadata
+│   ├── impressum/         # Legal page
+│   └── datenschutz/       # Privacy policy
+├── components/
+│   ├── ui/                # Reusable UI components (Radix + Tailwind)
+│   ├── custom/            # Business components
+│   │   ├── navbar/        # Navigation header
+│   │   ├── contactForm/   # Contact form with Web3Forms
+│   │   ├── faq/           # FAQ accordion
+│   │   └── serviceArea/   # Google Maps integration
+│   └── mainSection/       # Main page sections
+├── data/                  # Constants and configuration
+└── lib/                   # Utilities (cn function)
+```
 
-## 📱 Navigation Structure (Updated)
+## Navigation Structure
 
-### Desktop & Mobile Navigation:
+### Main Navigation
 - Über uns → #about
 - Tarife → #tariffs
-- **FAQ → #faq** (NEW!)
+- FAQ → #faq
 - Kontakt → #contact
 
-### Footer Additional Links:
+### Footer Links
 - Impressum → /impressum
 - Datenschutz → /datenschutz
 
----
+## Deployment
 
-## 📝 Commit & Deploy
+### GitHub Pages (Automatic)
 
-Once you've tested everything and filled in your information:
+The site deploys automatically via GitHub Actions when pushing to `main`:
+
+1. Commit your changes
+2. Push to `main` branch
+3. GitHub Actions builds and deploys
+
+**Note:** The Google Maps API key is stored in GitHub Secrets as `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`.
+
+### Manual Deployment
 
 ```bash
-# Add all changes
-git add .
-
-# Commit with a descriptive message
-git commit -m "Add legal pages, FAQ, Web3Forms contact, and UX improvements"
-
-# Push to remote
-git push -u origin feature/website-improvements
+npm run build
+# Upload the 'out' directory to your hosting provider
 ```
 
-Then you can either:
-- **Merge directly to main** (if you're confident):
-  ```bash
-  git checkout main
-  git merge feature/website-improvements
-  git push
-  ```
+## Troubleshooting
 
-- **Or create a Pull Request** on GitHub for review
-
----
-
-## 🎨 What Changed in Navigation
-
-### Before:
-- Über uns
-- Kontakt
-- Tarife
-- Coming Soon ❌
-
-### After:
-- Über uns
-- Tarife
-- **FAQ** ✨ (NEW!)
-- Kontakt
-
-The "Coming Soon" section still exists on the page, but it's no longer in the main navigation. Users can scroll to it naturally or you can add it back later if needed.
-
----
-
-## 📧 Contact Form Features
-
-Your new contact form includes:
-- Name field (required)
-- Email field (required)
-- Phone field (optional)
-- Message field (required)
-- Form validation
-- Loading states
-- Success/error messages
-- Email notifications via Web3Forms
-
-When someone submits the form, you'll receive an email at `heike@walkwithus-gassiservice.com` with:
-- Subject: "Neue Kontaktanfrage von [Name]"
-- All form field data
-
----
-
-## 🆘 Troubleshooting
-
-### Contact Form Not Working?
-1. Check that you've added your Web3Forms access key in `src/data/constants.ts`
-2. Verify your email address in the Web3Forms dashboard
+### Contact Form Not Working
+1. Verify Web3Forms access key in `src/data/constants.ts`
+2. Check email verification in Web3Forms dashboard
 3. Check browser console for errors (F12)
-4. Test with a different email address
 
-### Links Not Working?
-- Make sure all sections have the correct IDs:
-  - `#about` - About section ✅
-  - `#tariffs` - Pricing section ✅
-  - `#faq` - FAQ section ✅
-  - `#contact` - Contact section ✅
+### Map Not Displaying
+1. Verify Google Maps API key in `.env.local`
+2. Ensure Maps JavaScript API is enabled in Google Cloud Console
+3. Check for API key restrictions
 
-### Smooth Scrolling Not Working?
-- Clear your browser cache
-- Check that `src/app/globals.css` has `scroll-behavior: smooth;`
+### Smooth Scrolling Not Working
+1. Clear browser cache
+2. Verify `scroll-behavior: smooth;` in `src/app/globals.css`
 
----
+### Build Errors
+1. Run `npm run lint` to check for issues
+2. Ensure all environment variables are set
+3. Check TypeScript errors with `npx tsc --noEmit`
 
-## 📞 Need Help?
+## Feature Summary
 
-If you run into any issues:
-1. Check the browser console (F12 → Console tab)
-2. Verify all files are saved
-3. Restart the development server
-4. Check that you're on the correct branch: `feature/website-improvements`
+| Feature | Configuration File |
+|---------|-------------------|
+| Site config & pricing | `src/data/constants.ts` |
+| Navigation links | `src/data/constants.ts` |
+| Hero banner items | `src/data/bannerItems.tsx` |
+| Legal pages | `src/app/impressum/`, `src/app/datenschutz/` |
+| Contact form | `src/components/custom/contactForm/` |
+| Service area map | `src/components/custom/serviceArea/` |
+| FAQ content | `src/components/custom/faq/` |
 
----
+## Documentation
 
-## ✨ Summary of New Features
-
-| Feature | Status | File |
-|---------|--------|------|
-| Impressum page | ⚠️ Needs your info | `src/app/impressum/page.tsx` |
-| Datenschutz page | ⚠️ Needs your info | `src/app/datenschutz/page.tsx` |
-| Contact form | ⚠️ Needs Web3Forms key | `src/components/custom/contactForm/ContactForm.tsx` |
-| FAQ section | ✅ Ready | `src/components/custom/faq/FAQ.tsx` |
-| FAQ in navigation | ✅ Ready | All navigation components |
-| Smooth scrolling | ✅ Ready | `src/app/globals.css` |
-| Constants file | ✅ Ready | `src/data/constants.ts` |
-
----
-
-Good luck with your website! 🐾
+- [README.md](README.md) - Project overview and quick start
+- [CLAUDE.md](CLAUDE.md) - AI assistant guidelines

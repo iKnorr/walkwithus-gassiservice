@@ -1,6 +1,7 @@
 'use client'
 
 import { FAQ } from '../custom/faq/FAQ'
+import { ServiceAreaSection } from '../custom/serviceArea/ServiceAreaSection'
 import {
     AboutSection,
     GallerySection,
@@ -15,6 +16,7 @@ export const MainSection = () => {
             <AboutSection />
             <GallerySection />
             <TariffsSection />
+            <ServiceAreaSection />
             <ComingSoonSection />
             <FAQ />
             <ContactSection />

@@ -41,6 +41,7 @@ export const PRICING = {
 export const NAV_LINKS = [
     { href: '#about', label: 'Über uns' },
     { href: '#tariffs', label: 'Tarife' },
+    { href: '#service-area', label: 'Einsatzgebiet' },
     { href: '#faq', label: 'FAQ' },
     { href: '#contact', label: 'Kontakt' },
 ] as const
